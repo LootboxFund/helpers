@@ -1,9 +1,10 @@
 {
   "name": "@guildfx/helpers",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "lib/index.js",
   "author": "0xterran",
   "license": "private",
+  "type": "module",
   "files": [
     "lib"
   ],
