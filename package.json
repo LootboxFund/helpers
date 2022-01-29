@@ -1,6 +1,6 @@
 {
   "name": "@guildfx/helpers",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "lib/index.js",
   "author": "0xterran",
   "license": "private",
@@ -44,5 +44,8 @@
     "storybook": "start-storybook",
     "build-storybook": "build-storybook",
     "upload-cdn": "rollup -c && GOOGLE_APPLICATION_CREDENTIALS='<PATH_TO_GCP_SERVICE_ACCOUNT_JSON>' node scripts/upload-widgets.js"
+  },
+  "dependencies": {
+    "axios": "^0.25.0"
   }
 }
