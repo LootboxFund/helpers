@@ -5,18 +5,20 @@ import { terser } from 'rollup-plugin-terser'
 import json from '@rollup/plugin-json'
 import globals from 'rollup-plugin-node-globals'
 import builtins from 'rollup-plugin-node-builtins'
+import nodePolyfills from 'rollup-plugin-node-polyfills'
 
-const configESMLib = {
+const configCJSLib = {
   input: ['src/index.ts'],
   output: {
     dir: 'lib',
-    format: 'esm',
+    format: 'cjs',
     sourcemap: true,
   },
   plugins: [
-    typescript(), // enable TypeScript
     commonjs(), // enable CommonJS modules
-    resolve(), // enable importing from node_modules
+    nodePolyfills(), // enable NodeJS polyfills
+    resolve({ preferBuiltins: true, browser: true }), // enable importing from node_modules
+    typescript(), // enable TypeScript
     json(), // enable JSON
     globals(), // allows globals to be imported (process.env)
     builtins(), // allows builtins to be imported via require/import
@@ -24,7 +26,7 @@ const configESMLib = {
   external: ['react'],
 }
 if (process.env.NODE_ENV === 'production') {
-  configESMLib.plugins.push(terser()) // enable minification
+  configCJSLib.plugins.push(terser()) // enable minification
 }
 
-export default [configESMLib]
+export default [configCJSLib]

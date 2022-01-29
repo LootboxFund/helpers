@@ -1,4 +1,16 @@
-import { ChainIDHex, SemanticVersion, Address } from 'types'
+import { ChainIDHex, SemanticVersion, Address } from '../types'
+import { TokenData } from '../types/tokens.type'
+
+export const buildTokenIndexCDNRoutes = ({
+  semvar,
+  chainIdHex,
+}: {
+  semvar: SemanticVersion
+  chainIdHex: ChainIDHex
+}) => {
+  const cdnTokenIndexPath = `tokens/${chainIdHex}/v/${semvar}/index.json`
+  return cdnTokenIndexPath
+}
 
 export const buildTokenMoldCDNRoute = ({
   chainIdHex,
