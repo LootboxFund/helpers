@@ -1,6 +1,6 @@
 {
   "name": "@guildfx/helpers",
-  "version": "0.0.13",
+  "version": "0.0.32",
   "main": "lib/index.js",
   "author": "0xterran",
   "license": "private",
@@ -21,6 +21,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@types/jest": "^26.0.24",
+    "@types/lodash": "^4.14.178",
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
@@ -43,9 +44,10 @@
     "test": "jest --verbose --watch",
     "storybook": "start-storybook",
     "build-storybook": "build-storybook",
-    "upload-cdn": "rollup -c && GOOGLE_APPLICATION_CREDENTIALS='<PATH_TO_GCP_SERVICE_ACCOUNT_JSON>' node scripts/upload-widgets.js"
+    "publish:prod": "rollup -c && npm publish"
   },
   "dependencies": {
-    "axios": "^0.25.0"
+    "axios": "^0.25.0",
+    "lodash": "^4.17.21"
   }
 }
