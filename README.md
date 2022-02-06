@@ -15,7 +15,7 @@ $ yarn storybook
 ```bash
 $ yarn install
 $ yarn build
-$ yarn publish	# publish to npm
+$ npm publish	# dont use yarn
 ```
 
 ## Usage Locally
