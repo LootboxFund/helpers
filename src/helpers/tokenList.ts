@@ -2,53 +2,53 @@ import { ChainIDHex, SemanticVersion, Address } from '../types'
 
 // builds CDN path for indexing tokens
 export const buildTokenIndexCDNRoutes = ({
-  semvar,
+  semver,
   chainIdHex,
 }: {
-  semvar: SemanticVersion
+  semver: SemanticVersion
   chainIdHex: ChainIDHex
 }) => {
-  const cdnTokenIndexPath = `v/${semvar}/${chainIdHex}/tokens/index.json`
+  const cdnTokenIndexPath = `v/${semver}/${chainIdHex}/tokens/index.json`
   return cdnTokenIndexPath
 }
 
 // builds CDN path for tokens
 export const buildTokenCDNRoute = ({
   chainIdHex,
-  semvar,
+  semver,
   address,
 }: {
   chainIdHex: ChainIDHex
-  semvar: SemanticVersion
+  semver: SemanticVersion
   address: Address
 }) => {
-  const cdnTokenPath = `v/${semvar}/${chainIdHex}/tokens/${address}.json`
+  const cdnTokenPath = `v/${semver}/${chainIdHex}/tokens/${address}.json`
   return cdnTokenPath
 }
 
 // builds CDN path for crowdsales
 export const buildCrowdSaleCDNRoute = ({
   chainIdHex,
-  semvar,
+  semver,
   address,
 }: {
   chainIdHex: ChainIDHex
-  semvar: SemanticVersion
+  semver: SemanticVersion
   address: Address
 }) => {
-  const cdnTokenPath = `v/${semvar}/${chainIdHex}/crowdsales/${address}.json`
+  const cdnTokenPath = `v/${semver}/${chainIdHex}/crowdsales/${address}.json`
   return cdnTokenPath
 }
 
 // builds CDN path for indexing crowdsales
 export const buildCrowdsaleIndexCDNRoutes = ({
-  semvar,
+  semver,
   chainIdHex,
 }: {
-  semvar: SemanticVersion
+  semver: SemanticVersion
   chainIdHex: ChainIDHex
 }) => {
-  const cdnTokenIndexPath = `v/${semvar}/${chainIdHex}/crowdsales/index.json`
+  const cdnTokenIndexPath = `v/${semver}/${chainIdHex}/crowdsales/index.json`
   return cdnTokenIndexPath
 }
 
