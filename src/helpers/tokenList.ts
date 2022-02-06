@@ -8,7 +8,7 @@ export const buildTokenIndexCDNRoutes = ({
   semvar: SemanticVersion
   chainIdHex: ChainIDHex
 }) => {
-  const cdnTokenIndexPath = `tokens/${chainIdHex}/v/${semvar}/index.json`
+  const cdnTokenIndexPath = `v/${semvar}/${chainIdHex}/tokens/index.json`
   return cdnTokenIndexPath
 }
 
@@ -22,7 +22,7 @@ export const buildTokenCDNRoute = ({
   semvar: SemanticVersion
   address: Address
 }) => {
-  const cdnTokenPath = `tokens/${chainIdHex}/v/${semvar}/${address}.json`
+  const cdnTokenPath = `v/${semvar}/${chainIdHex}/tokens/${address}.json`
   return cdnTokenPath
 }
 
@@ -36,7 +36,7 @@ export const buildCrowdSaleCDNRoute = ({
   semvar: SemanticVersion
   address: Address
 }) => {
-  const cdnTokenPath = `crowdsales/${chainIdHex}/v/${semvar}/${address}.json`
+  const cdnTokenPath = `v/${semvar}/${chainIdHex}/crowdsales/${address}.json`
   return cdnTokenPath
 }
 
@@ -48,7 +48,7 @@ export const buildCrowdsaleIndexCDNRoutes = ({
   semvar: SemanticVersion
   chainIdHex: ChainIDHex
 }) => {
-  const cdnTokenIndexPath = `crowdsales/${chainIdHex}/v/${semvar}/index.json`
+  const cdnTokenIndexPath = `v/${semvar}/${chainIdHex}/crowdsales/index.json`
   return cdnTokenIndexPath
 }
 
