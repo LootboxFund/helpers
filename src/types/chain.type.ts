@@ -1,4 +1,4 @@
-import { ChainIDDecimal, ChainIDHex, Url } from "./base.type";
+import { ChainIDDecimal, ChainIDHex, Url, ContractAddress } from './base.type';
 
 export enum ChainSlugs {
   BSC_TESTNET = "BSC_TESTNET",
@@ -20,6 +20,7 @@ export type ChainInfo = {
   blockExplorerUrls: Url[];
   currentNetworkLogo: string;
   slug: ChainSlugs;
+  priceFeedUSD: ContractAddress;
 };
 export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
   BSC_TESTNET: {
@@ -33,6 +34,7 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     currentNetworkLogo:
       "https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png",
     slug: ChainSlugs.BSC_TESTNET,
+    priceFeedUSD: "0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526" as ContractAddress,
   },
   BSC_MAINNET: {
     slug: ChainSlugs.BSC_MAINNET,
@@ -44,6 +46,7 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/'],
     blockExplorerUrls: ['https://testnet.bscscan.com/'],
     currentNetworkLogo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',
+    priceFeedUSD: '0x0' as ContractAddress,
   },
   POLYGON_TESTNET: {
     slug: ChainSlugs.POLYGON_TESTNET,
@@ -56,6 +59,7 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     blockExplorerUrls: ['https://mumbai.polygonscan.com/'],
     currentNetworkLogo:
       'https://firebasestorage.googleapis.com/v0/b/guildfx-exchange.appspot.com/o/assets%2Ftokens%2FMATIC.png?alt=media',
+    priceFeedUSD: '0x0' as ContractAddress,
   },
   POLYGON_MAINNET: {
     slug: ChainSlugs.POLYGON_MAINNET,
@@ -68,5 +72,16 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     blockExplorerUrls: ['https://polygonscan.com/'],
     currentNetworkLogo:
       'https://firebasestorage.googleapis.com/v0/b/guildfx-exchange.appspot.com/o/assets%2Ftokens%2FMATIC.png?alt=media',
+    priceFeedUSD: '0x0' as ContractAddress,
   },
 };
+
+export const chainIdHexToSlug = (chainIdHex: ChainIDHex): ChainSlugs | undefined => {
+  const chain = Object.values(BLOCKCHAINS).find(
+    (value) => value.chainIdHex === chainIdHex
+  );
+  if (chain) {
+    return chain.slug
+  }
+  return 
+}
