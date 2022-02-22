@@ -75,3 +75,13 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     priceFeedUSD: '0x0' as ContractAddress,
   },
 };
+
+export const chainIdHexToSlug = (chainIdHex: ChainIDHex): ChainSlugs | undefined => {
+  const chain = Object.values(BLOCKCHAINS).find(
+    (value) => value.chainIdHex === chainIdHex
+  );
+  if (chain) {
+    return chain.slug
+  }
+  return 
+}
