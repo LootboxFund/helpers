@@ -1,7 +1,6 @@
 import isEqual from 'lodash/isEqual'
 import clone from 'lodash/clone'
 import intersection from 'lodash/intersection'
-import { KeysOfUnion, MakeUndefinedValuesOptional, UnionOmit } from '../types/helpers.type'
 
 export function toBoolean<T>(val: T): boolean {
   return val ? true : false
@@ -14,15 +13,6 @@ export function fallback<T, K>(main: T, fallbackVal: K): Exclude<T, null | undef
   return fallbackVal
 }
 
-export function removeUndefined<T extends Record<any, any>>(obj: T): MakeUndefinedValuesOptional<T> {
-  Object.keys(obj).forEach((key) => {
-    const val = obj[key as keyof T]
-    if (val === undefined) {
-      delete obj[key as keyof T]
-    }
-  })
-  return obj
-}
 
 export function isNonEmpty<T>(arr: T[]): arr is [T, ...T[]] {
   return arr.length > 0
@@ -128,20 +118,6 @@ export function findMax<T, K extends keyof T>(arr: T[], key: K) {
   return max
 }
 
-//If T is a string, then only the array is neccesary.
-//If T is not a string, then both the the array and a function to get the deduplication key is needed
-export function deduplicate<T>(...params: T extends string ? [arr: T[]] : [arr: T[], getKey: (val: T) => string]): T[] {
-  const newArr: T[] = []
-  const addedKeys = new Set<string>()
-  params[0].forEach((x) => {
-    const key = params[1] === undefined ? x : params[1](x)
-    if (!addedKeys.has(key)) {
-      addedKeys.add(key)
-      newArr.push(x)
-    }
-  })
-  return newArr
-}
 
 export function upsert<T>(arr: T[], val: T, isEqual: (x: T) => boolean): T[] {
   let updated = false
@@ -370,17 +346,6 @@ export function pick<T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> {
   return ret
 }
 
-export function omit<T extends Record<string, any>, K extends KeysOfUnion<T>>(obj: T, ...keys: K[]): UnionOmit<T, K> {
-  const ret: any = {}
-  const excludeSet: Set<string> = new Set(keys)
-
-  for (const key in obj) {
-    if (!excludeSet.has(key)) {
-      ret[key] = obj[key]
-    }
-  }
-  return ret
-}
 
 export function addArrayToSet<T>(set: Set<T>, arr: T[]) {
   arr.forEach((x) => set.add(x))
