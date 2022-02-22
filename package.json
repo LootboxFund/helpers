@@ -1,6 +1,6 @@
 {
-  "name": "@guildfx/helpers",
-  "version": "0.0.35",
+  "name": "@lootboxfund/helpers",
+  "version": "0.0.1",
   "main": "lib/index.js",
   "author": "0xterran",
   "license": "private",
