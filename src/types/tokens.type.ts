@@ -1,5 +1,5 @@
 import { Address, ChainIDDecimal, ChainIDHex, SemanticVersion, Url } from './base.type'
-import { Terrasemver } from './gcloud.type';
+import { GCloudBucket } from './gcloud.type';
 
 export interface TokenData {
   address: Address
@@ -16,7 +16,7 @@ export interface GCloudBucketFragment {
   semver: SemanticVersion;
   chainIDHex: ChainIDHex;
   prefix: string;
-  bucket: Terrasemver["gcloud"]["bucketName"];
+  bucket: GCloudBucket;
   data: TokenData;
 }
 

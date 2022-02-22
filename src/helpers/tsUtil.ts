@@ -311,14 +311,6 @@ export function addToDictArray<T>(
   }
 }
 
-export function getFirstRegexMatch(str: string, regex: RegExp) {
-  const email = str.match(regex)
-  if (email !== null) {
-    return email[0] ?? null
-  } else {
-    return null
-  }
-}
 
 export function regexMatchAll(str: string, regex: RegExp): { match: string; groups: string[] }[] {
   const output: { match: string; groups: string[] }[] = []

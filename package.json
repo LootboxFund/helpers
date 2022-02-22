@@ -1,6 +1,6 @@
 {
   "name": "@lootboxfund/helpers",
-  "version": "0.0.5",
+  "version": "0.0.10",
   "main": "lib/index.js",
   "author": "0xterran",
   "license": "private",
