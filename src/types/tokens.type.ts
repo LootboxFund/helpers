@@ -1,5 +1,5 @@
-import { Address, ChainIDDecimal, ChainIDHex, SemanticVersion, Url } from './base.type'
-import { GCloudBucket } from './gcloud.type';
+import { Address, ChainIDDecimal, ChainIDHex, SemanticVersion, Url, ContractAddress } from './base.type'
+import { GCloudBucket } from './gcloud.type'
 
 export interface TokenData {
   address: Address
@@ -13,24 +13,24 @@ export interface TokenData {
 }
 
 export interface GCloudBucketFragment {
-  semver: SemanticVersion;
-  chainIDHex: ChainIDHex;
-  prefix: string;
-  bucket: GCloudBucket;
-  data: TokenData;
+  semver: SemanticVersion
+  chainIDHex: ChainIDHex
+  prefix: string
+  bucket: GCloudBucket
+  data: TokenData
 }
 
 export interface ITicketMetadata {
-  address: string;
+  address: ContractAddress
   name: string | undefined
   description: string | undefined
-  image: string | undefined
+  image: Url | undefined
   backgroundColor: string | undefined
-  backgroundImage: string | undefined
+  backgroundImage: Url | undefined
   lootbox?: {
-    address: string
-    chainIdHex: string
-    chainIdDecimal: string
+    address: ContractAddress
+    chainIdHex: ChainIDHex
+    chainIdDecimal: ChainIDDecimal
     chainName: string
     targetPaybackDate: Date
     fundraisingTarget: string
@@ -40,22 +40,22 @@ export interface ITicketMetadata {
     lootboxThemeColor: string
     transactionHash: string
     blockNumber: string
-  },
+  }
   socials?: {
-    twitter: string;
-    email: string;
-    instagram: string;
-    tiktok: string;
-    facebook: string;
-    discord: string;
-    youtube: string;
-    snapchat: string;
-    twitch: string;
-    web:string;
+    twitter: string
+    email: string
+    instagram: string
+    tiktok: string
+    facebook: string
+    discord: string
+    youtube: string
+    snapchat: string
+    twitch: string
+    web: string
   }
 }
 
 export type ABIUtilRepresenation = {
-  abi: string;
-  keys: string[];
-};
+  abi: string
+  keys: string[]
+}

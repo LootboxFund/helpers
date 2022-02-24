@@ -1,4 +1,4 @@
-# GuildFX Helper
+# Lootbox Helpers
 
 A template for building shareable libraries that can be used both NodeJS `import` or Browser `<script>` tags.
 
