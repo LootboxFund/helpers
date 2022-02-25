@@ -76,7 +76,7 @@ const App = () => {
   <script src="https://firebasestorage.googleapis.com/v0/b/guildfx-exchange.appspot.com/o/index.js?alt=media&token=ed98e790-1eab-4b7f-acc1-b06065975d69"></script>
   <script>
     // injects a react component into the page at <div id="react-target">
-    GuildFX_UI.injectCounter()
+    Lootbox_UI.injectCounter()
   </script>
 </body>
 ```
