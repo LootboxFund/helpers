@@ -1,4 +1,4 @@
-import { SemanticVersion } from './base.type'
+import { SemanticVersion } from '@lootboxfund/manifest'
 
 export interface GCloud_Config {
   bucketName: GCloudBucketsEnum.devBucket
