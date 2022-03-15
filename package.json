@@ -1,6 +1,6 @@
 {
-  "name": "@lootboxfund/helpers",
-  "version": "0.0.25",
+  "name": "@wormgraph/helpers",
+  "version": "0.0.26",
   "main": "lib/index.js",
   "author": "0xterran",
   "license": "private",
