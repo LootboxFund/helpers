@@ -1,4 +1,5 @@
-import { Address, ChainIDDecimal, ChainIDHex, Url, ContractAddress, SemanticVersion } from './base.type'
+import { SemanticVersion } from '@wormgraph/manifest'
+import { Address, ChainIDDecimal, ChainIDHex, Url, ContractAddress } from './base.type'
 import { GCloudBucket } from './gcloud.type'
 
 export interface TokenData {

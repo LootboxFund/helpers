@@ -3290,6 +3290,21 @@
     "@webassemblyjs/wast-parser" "1.9.0"
     "@xtuc/long" "4.2.2"
 
+"@wormgraph/helpers@^0.0.28":
+  version "0.0.28"
+  resolved "https://registry.yarnpkg.com/@wormgraph/helpers/-/helpers-0.0.28.tgz#12470e75e7cff3f33a9cbbc9dd1425fdc6068bb7"
+  integrity sha512-kN/uof/lxvWsE5fZWTPnU7euMXVk/YtEKJCJJXVltMxVwXDUhW6aKRpXLBbZ80fK7Jz/H47pzI8HHEbFqqNxhw==
+  dependencies:
+    axios "0.25.0"
+    lodash "4.17.21"
+
+"@wormgraph/manifest@0.2.48":
+  version "0.2.48"
+  resolved "https://registry.yarnpkg.com/@wormgraph/manifest/-/manifest-0.2.48.tgz#8a3a1679dd73e326a80dbf23242653c2f16bf410"
+  integrity sha512-sT0DEhNzjR8IpPSLwx9RiIBj4VTUhQvS/KuzS1sUtcNdachcOUsGMvt53cdAnBLZ6y8+SkqxJWxJiOg2Ub5s9w==
+  dependencies:
+    "@wormgraph/helpers" "^0.0.28"
+
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@xtuc/ieee754/-/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"

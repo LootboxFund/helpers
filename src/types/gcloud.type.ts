@@ -1,4 +1,4 @@
-import { SemanticVersion } from '../types'
+import { SemanticVersion } from '@wormgraph/manifest'
 
 export interface GCloud_Config {
   bucketName: GCloudBucketsEnum.devBucket
