@@ -1,6 +1,6 @@
 {
   "name": "@wormgraph/helpers",
-  "version": "0.0.28",
+  "version": "0.0.30",
   "main": "lib/index.js",
   "author": "0xterran",
   "license": "private",
@@ -48,7 +48,6 @@
   },
   "dependencies": {
     "axios": "0.25.0",
-    "lodash": "4.17.21",
-    "@wormgraph/manifest": "0.2.48"
+    "lodash": "4.17.21"
   }
 }

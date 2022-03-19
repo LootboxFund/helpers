@@ -6,3 +6,4 @@ export type ContractAddress = string & { readonly _: unique symbol }
 export type Address = ExternalAddress | ContractAddress
 export type TicketID = string
 export type ABIGenericInterface = any
+export type SemanticVersion = string

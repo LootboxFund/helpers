@@ -1,5 +1,4 @@
-import { SemanticVersion } from '@wormgraph/manifest'
-import { ChainIDHex, Address } from '../types'
+import { ChainIDHex, Address, SemanticVersion } from '../types'
 
 // builds CDN path for indexing tokens
 export const buildTokenIndexCDNRoutes = ({ chainIdHex }: { semver: SemanticVersion; chainIdHex: ChainIDHex }) => {
