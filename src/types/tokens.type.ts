@@ -1,5 +1,4 @@
-import { SemanticVersion } from '@lootboxfund/manifest'
-import { Address, ChainIDDecimal, ChainIDHex, Url, ContractAddress } from './base.type'
+import { Address, ChainIDDecimal, ChainIDHex, Url, ContractAddress, SemanticVersion } from './base.type'
 import { GCloudBucket } from './gcloud.type'
 
 export interface TokenData {
