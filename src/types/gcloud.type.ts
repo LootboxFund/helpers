@@ -7,7 +7,9 @@ export interface GCloud_Config {
 }
 
 export enum GCloudBucketsEnum {
+  /** @deprecated don't use devBucket anymore */
   devBucket = 'guildfx-exchange.appspot.com',
+  lootboxApp = 'lootbox-app-development',
 }
 export type GCloudBucket = 'guildfx-exchange.appspot.com'
 
