@@ -1,5 +1,4 @@
-import { Address, ChainIDDecimal, ChainIDHex, Url, ContractAddress, SemanticVersion } from './base.type'
-import { GCloudBucket } from './gcloud.type'
+import { Address, ChainIDDecimal, ChainIDHex, Url, ContractAddress } from './base.type'
 
 export interface TokenData {
   address: Address
@@ -10,14 +9,6 @@ export interface TokenData {
   chainIdDecimal: ChainIDDecimal
   logoURI: Url
   priceOracle: Address
-}
-
-export interface GCloudBucketFragment {
-  semver: SemanticVersion
-  chainIDHex: ChainIDHex
-  prefix: string
-  bucket: GCloudBucket
-  data: TokenData
 }
 
 export interface ITicketMetadata {
