@@ -18,6 +18,7 @@ export interface ITicketMetadata {
   image: Url | undefined
   backgroundColor: string | undefined
   backgroundImage: Url | undefined
+  badgeImage: Url | undefined
   lootbox?: {
     address: ContractAddress
     chainIdHex: ChainIDHex
@@ -25,6 +26,7 @@ export interface ITicketMetadata {
     chainName: string
     targetPaybackDate: Date
     fundraisingTarget: string
+    fundraisingTargetMax: string
     basisPointsReturnTarget: string
     returnAmountTarget: string
     pricePerShare: string
