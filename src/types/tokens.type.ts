@@ -24,7 +24,8 @@ export interface ITicketMetadata {
     chainIdHex: ChainIDHex
     chainIdDecimal: ChainIDDecimal
     chainName: string
-    targetPaybackDate: Date
+    targetPaybackDate: number  // Unix timestamp (new Date().valueOf())
+    createdAt: number  // Unix timestamp (new Date().valueOf())
     fundraisingTarget: string
     fundraisingTargetMax: string
     basisPointsReturnTarget: string
