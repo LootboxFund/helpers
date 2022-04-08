@@ -47,7 +47,7 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     blockExplorerUrls: ['https://bscscan.com/'],
     currentNetworkLogo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',
     slug: ChainSlugs.BSC_MAINNET,
-    priceFeedUSD: '0x0' as ContractAddress,
+    priceFeedUSD: '0x0567f2323251f0aab15c8dfb1967e4e8a7d42aee' as ContractAddress,
   },
   BSC_TESTNET: {
     slug: ChainSlugs.BSC_TESTNET,
