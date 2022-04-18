@@ -37,7 +37,7 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     slug: ChainSlugs.ETH_MAINNET,
     priceFeedUSD: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419' as ContractAddress,
   },
-  BSC_TESTNET: {
+  BSC_MAINNET: {
     chainIdHex: '0x38',
     chainIdDecimal: '56',
     chainName: 'Binance Smart Chain',
@@ -46,11 +46,11 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     rpcUrls: ['https://bsc-dataseed.binance.org/'],
     blockExplorerUrls: ['https://bscscan.com/'],
     currentNetworkLogo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',
-    slug: ChainSlugs.BSC_TESTNET,
-    priceFeedUSD: '0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526' as ContractAddress,
-  },
-  BSC_MAINNET: {
     slug: ChainSlugs.BSC_MAINNET,
+    priceFeedUSD: '0x0567f2323251f0aab15c8dfb1967e4e8a7d42aee' as ContractAddress,
+  },
+  BSC_TESTNET: {
+    slug: ChainSlugs.BSC_TESTNET,
     chainIdHex: '0x61',
     chainIdDecimal: '97',
     chainName: 'Binance Smart Chain (Testnet)',
@@ -59,7 +59,7 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/'],
     blockExplorerUrls: ['https://testnet.bscscan.com/'],
     currentNetworkLogo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',
-    priceFeedUSD: '0x0' as ContractAddress,
+    priceFeedUSD: '0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526' as ContractAddress,
   },
   POLYGON_TESTNET: {
     slug: ChainSlugs.POLYGON_TESTNET,
