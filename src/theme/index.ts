@@ -16,6 +16,7 @@ export const COLORS = {
 
   black: '#000000',
   white: '#FFFFFF',
+  green: '#37D200',
 }
 
 export const TYPOGRAPHY = {
@@ -29,6 +30,7 @@ export const TYPOGRAPHY = {
     medium: '1rem',
     large: '1.2rem',
     xlarge: '1.4rem',
+    xxlarge: '1.6rem',
   },
   fontWeight: {
     light: 300,
