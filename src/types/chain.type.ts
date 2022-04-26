@@ -72,7 +72,7 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     blockExplorerUrls: ['https://mumbai.polygonscan.com/'],
     currentNetworkLogo:
       'https://firebasestorage.googleapis.com/v0/b/guildfx-exchange.appspot.com/o/assets%2Ftokens%2FMATIC.png?alt=media',
-    priceFeedUSD: '0x0' as ContractAddress,
+    priceFeedUSD: '0xd0D5e3DB44DE05E9F294BB0a3bEEaF030DE24Ada' as ContractAddress,
   },
   POLYGON_MAINNET: {
     slug: ChainSlugs.POLYGON_MAINNET,
@@ -85,7 +85,7 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     blockExplorerUrls: ['https://polygonscan.com/'],
     currentNetworkLogo:
       'https://firebasestorage.googleapis.com/v0/b/guildfx-exchange.appspot.com/o/assets%2Ftokens%2FMATIC.png?alt=media',
-    priceFeedUSD: '0x0' as ContractAddress,
+    priceFeedUSD: '0xAB594600376Ec9fD91F8e885dADF0CE036862dE0' as ContractAddress,
   },
   UNKNOWN: {
     slug: ChainSlugs.POLYGON_MAINNET,
