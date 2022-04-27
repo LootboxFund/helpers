@@ -1,4 +1,4 @@
-import { Address, ChainIDDecimal, ChainIDHex, Url, ContractAddress } from './base.type'
+import { Address, ChainIDDecimal, ChainIDHex, Url, ContractAddress, SemanticVersion } from './base.type'
 
 export interface TokenData {
   address: Address
@@ -12,6 +12,7 @@ export interface TokenData {
 }
 
 export interface LootboxCustomSchema {
+  version: SemanticVersion
   chain: {
     address: ContractAddress
     title: string
@@ -51,7 +52,6 @@ export interface LootboxCustomSchema {
   }
 }
 
-//
 /**
  * Base level metadata should be opensea compatible (see https://docs.opensea.io/docs/metadata-standards for more details)
  * Custom lootbox metadata is nested in lootboxCustomSchema field
