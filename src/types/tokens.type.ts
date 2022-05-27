@@ -75,38 +75,38 @@ export interface ILootboxMetadata {
 }
 
 interface OpenSeaAttributes {
-  trait_type: string | number;
-  value: string;
-  display_type?: string;
+  trait_type: string | number
+  value: string
+  display_type?: string
 }
 
 export interface ITicketMetadata {
-  image: string; // the stamp
-  external_url: string;
-  description: string;
-  name: string;
-  background_color: string;
-  animation_url: string;
-  youtube_url: string;
-  attributes?: OpenSeaAttributes[];
+  image: string // the stamp
+  external_url: string
+  description: string
+  name: string
+  background_color: string
+  animation_url: string
+  youtube_url: string
+  attributes?: OpenSeaAttributes[]
   lootboxCustomSchema: {
-    version: string;
+    version: string
     chain: {
       /** lootbox address */
-      address: string;
-      chainIdHex: string;
-      chainName: string;
-      chainIdDecimal: string;
-    };
+      address: string
+      chainIdHex: string
+      chainName: string
+      chainIdDecimal: string
+    }
     lootbox: {
-      ticketNumber: number;
-      backgroundImage: string;
-      image: string;
-      backgroundColor: string;
-      badgeImage?: string;
-      sharesInTicket: string;
-    };
-  };
+      ticketNumber: number
+      backgroundImage: string
+      image: string
+      backgroundColor: string
+      badgeImage?: string
+      sharesInTicket: string
+    }
+  }
 }
 
 export type ABIUtilRepresenation = {
