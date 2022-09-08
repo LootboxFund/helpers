@@ -13,7 +13,6 @@ export function fallback<T, K>(main: T, fallbackVal: K): Exclude<T, null | undef
   return fallbackVal
 }
 
-
 export function isNonEmpty<T>(arr: T[]): arr is [T, ...T[]] {
   return arr.length > 0
 }
@@ -110,14 +109,13 @@ export function findMax<T, K extends keyof T>(arr: T[], key: K) {
   let max: T | undefined
   let maxVal: T[K] | undefined
   for (const val of arr) {
-    if (maxVal === undefined || val[key] > maxVal) {
+    if (maxVal == undefined || val[key] > maxVal) {
       max = val
       maxVal = val[key]
     }
   }
   return max
 }
-
 
 export function upsert<T>(arr: T[], val: T, isEqual: (x: T) => boolean): T[] {
   let updated = false
@@ -160,7 +158,7 @@ export function forEachPair<T>(arr: T[], func: (pair: [T, T]) => void) {
 }
 
 export function getKeys<T>(obj: T): (keyof T)[] {
-  return Object.keys(obj).map((x) => x as keyof T)
+  return Object.keys(obj || {}).map((x) => x as keyof T)
 }
 
 //Given an array of objects, return a map from a key in each object to that object
@@ -311,7 +309,6 @@ export function addToDictArray<T>(
   }
 }
 
-
 export function regexMatchAll(str: string, regex: RegExp): { match: string; groups: string[] }[] {
   const output: { match: string; groups: string[] }[] = []
 
@@ -337,7 +334,6 @@ export function pick<T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> {
   })
   return ret
 }
-
 
 export function addArrayToSet<T>(set: Set<T>, arr: T[]) {
   arr.forEach((x) => set.add(x))
