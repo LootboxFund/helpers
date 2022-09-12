@@ -25,6 +25,13 @@ export enum OfferStatus {
   Archived = 'Archived',
 }
 
+export enum ActivationStatus {
+  Active = 'Active',
+  Inactive = 'Inactive',
+  Planned = 'Planned',
+  Archived = 'Archived',
+}
+
 export type ConquestID = string & { readonly _: unique symbol }
 export enum ConquestStatus {
   Active = 'Active',
@@ -33,11 +40,12 @@ export enum ConquestStatus {
   Archived = 'Archived',
 }
 
-export type AffiliateBaseLinkID = string & { readonly _: unique symbol }
+export type AffiliateBaseLink = string
 
 export enum MeasurementPartnerType {
   Appsflyer = 'Appsflyer',
   LootboxPixel = 'LootboxPixel',
+  Manual = 'Manual',
 }
 
 export type AdTargetTagID = string & { readonly _: unique symbol }
