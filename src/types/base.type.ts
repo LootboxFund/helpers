@@ -25,3 +25,7 @@ export type CampaignID = string & { readonly _: unique symbol }
 export type FlightID = string & { readonly _: unique symbol }
 export type CreativeID = string & { readonly _: unique symbol }
 export type AdEventNonce = string & { readonly _: unique symbol }
+export type AdvertiserID = string & { readonly brand: unique symbol }
+export type AffiliateID = string & { readonly _: unique symbol }
+export type OfferID = string & { readonly _: unique symbol }
+export type MemoID = string & { readonly _: unique symbol }
