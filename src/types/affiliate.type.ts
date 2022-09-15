@@ -14,38 +14,8 @@ import { AdvertiserID, AffiliateID, OfferID } from './base.type'
  * Especially if you refer an advertiser to us
  */
 
-export type OrganizerTierID = string & { readonly _: unique symbol }
-export enum OrganizerTierEnum {
-  CLAY = 'CLAY', // Revenue Split 50/50
-  BRONZE = 'BRONZE', // Revenue Split 70/30
-  SILVER = 'SILVER', // Revenue Split 75/25
-  GOLD = 'GOLD', // Revenue Split 85/15
-  PLATINUM = 'PLATINUM', // Revenue Split 90/10
-}
-export interface OrganizerTier {
-  id: OrganizerTierID
-  slug: OrganizerTierEnum
-  title: string
-  description: string
-  percentage: number
-}
-
-export type OrganizerAdvertiserTierWhitelistID = string & {
+export type OrganizerOfferWhitelistID = string & {
   readonly _: unique symbol
-}
-export interface OrganizerAdvertiserTierWhitelist {
-  id: OrganizerAdvertiserTierWhitelistID
-  organizerID: AffiliateID
-  advertiserID: AdvertiserID
-}
-export type OrganizerOfferTierWhitelistID = string & {
-  readonly _: unique symbol
-}
-export interface OrganizerOfferTierWhitelist {
-  id: OrganizerOfferTierWhitelistID
-  organizerID: AffiliateID
-  offerID: OfferID
-  advertiserID: AdvertiserID
 }
 
 /**
@@ -78,3 +48,80 @@ export enum AffiliateType {
 }
 
 export type RateCardID = string & { readonly _: unique symbol }
+
+export enum OrganizerRank {
+  ClayRank1 = 'ClayRank1',
+  IronRank2 = 'IronRank2',
+  BronzeRank3 = 'BronzeRank3',
+  SilverRank4 = 'SilverRank4',
+  GoldRank5 = 'GoldRank5',
+  PlatinumRank6 = 'PlatinumRank6',
+  DiamondRank7 = 'DiamondRank7',
+  GhostRank0 = 'GhostRank0',
+}
+export type RankInfo = {
+  slug: OrganizerRank
+  name: string
+  description: string
+  color: string
+  revenueShare: number
+}
+export const rankInfoTable: Record<OrganizerRank, RankInfo> = {
+  ClayRank1: {
+    slug: OrganizerRank.ClayRank1,
+    name: 'Clay - Rank 1',
+    description:
+      'For new tournament organizers with no history. To be promoted to Rank 2, you must have at least 1 tournament with $50 USD in ticket payouts AND earned at least $10 USD in affiliate revenue',
+    color: '#c2720a',
+    revenueShare: 0.5,
+  },
+  IronRank2: {
+    slug: OrganizerRank.IronRank2,
+    name: 'Iron - Rank 2',
+    description: 'For tournament organizers with some experience. To be promoted to Rank 3, you must...',
+    color: '#c2720a',
+    revenueShare: 0.65,
+  },
+  BronzeRank3: {
+    slug: OrganizerRank.BronzeRank3,
+    name: 'Bronze - Rank 3',
+    description: 'Bronze Rank 3',
+    color: '#c2720a',
+    revenueShare: 0.7,
+  },
+  SilverRank4: {
+    slug: OrganizerRank.SilverRank4,
+    name: 'Silver - Rank 4',
+    description: 'Silver Rank 4',
+    color: '#c2720a',
+    revenueShare: 0.75,
+  },
+  GoldRank5: {
+    slug: OrganizerRank.GoldRank5,
+    name: 'Gold - Rank 5',
+    description: 'Gold Rank 5',
+    color: '#c2720a',
+    revenueShare: 0.8,
+  },
+  PlatinumRank6: {
+    slug: OrganizerRank.PlatinumRank6,
+    name: 'Platinum - Rank 6',
+    description: 'Platinum Rank 6',
+    color: '#c2720a',
+    revenueShare: 0.85,
+  },
+  DiamondRank7: {
+    slug: OrganizerRank.DiamondRank7,
+    name: 'Diamond - Rank 7',
+    description: 'Diamond Rank 7',
+    color: '#c2720a',
+    revenueShare: 0.9,
+  },
+  GhostRank0: {
+    slug: OrganizerRank.GhostRank0,
+    name: 'Ghost - Rank 0',
+    description: 'Ghost Rank 0',
+    color: '#c2720a',
+    revenueShare: 1,
+  },
+}

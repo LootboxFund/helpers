@@ -1,6 +1,6 @@
 {
   "name": "@wormgraph/helpers",
-  "version": "0.1.14-afn-alpha7",
+  "version": "0.2.0-afn-alpha1",
   "main": "lib/index.js",
   "author": "0xterran",
   "license": "private",
@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "@wormgraph/helpers": "0.1.14-afn-alpha4",
+    "@wormgraph/manifest": "0.4.0-afm-alpha1",
     "axios": "0.25.0",
     "lodash": "4.17.21"
   }
