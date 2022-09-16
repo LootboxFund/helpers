@@ -44,6 +44,7 @@ export type AdEventAffiliateAttribution = {
   organizerID?: AffiliateID
   promoterID?: AffiliateID
   userID?: UserID
+  tournamentID?: TournamentID
 }
 
 export enum AdEventAction {

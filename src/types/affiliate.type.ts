@@ -1,4 +1,18 @@
-import { AdvertiserID, AffiliateID, OfferID } from './base.type'
+import { MMPActivationAlias } from './ad.type'
+import { ActivationID, AffiliateBaseLink, MeasurementPartnerType, OfferStatus } from './advertiser.type'
+import {
+  AdEventID,
+  AdSetID,
+  AdvertiserID,
+  AffiliateID,
+  FlightID,
+  MemoID,
+  OfferID,
+  RateQuoteID,
+  StreamID,
+  TournamentID,
+  UserID,
+} from './base.type'
 
 /**
  * ---- How Affiliate Tiers Work ----
@@ -124,4 +138,115 @@ export const rankInfoTable: Record<OrganizerRank, RankInfo> = {
     color: '#c2720a',
     revenueShare: 1,
   },
+}
+
+export interface Memo_Firestore {
+  id: MemoID
+  affiliateID: AffiliateID
+  affiliateType: AffiliateType
+  offerID: OfferID
+  advertiserID: AdvertiserID
+  adEventID: AdEventID
+  activationID: ActivationID
+  mmpAlias: MMPActivationAlias
+  mmp: MeasurementPartnerType
+  flightID?: FlightID
+  tournamentID?: TournamentID
+  note: string
+  amount: number
+  timestamp: number
+}
+
+export interface Offer_Firestore {
+  id: OfferID
+  title: string
+  description: string
+  image: string
+  advertiserID: AdvertiserID
+  spentBudget: number
+  maxBudget: number
+  // currency: Currency;
+  startDate: number
+  endDate: number
+  status: OfferStatus
+  affiliateBaseLink: AffiliateBaseLink
+  mmp: MeasurementPartnerType
+  // targetingTags: AdTargetTag[];
+  adSets: AdSetID[]
+}
+
+export interface RateQuote_Firestore {
+  id: RateQuoteID
+  tournamentID?: TournamentID
+  affiliateID: AffiliateID
+  affiliateType: AffiliateType
+  offerID: OfferID
+  activationID: ActivationID
+  pricing: number
+  timestamp: number
+  status: RateQuoteStatus
+}
+
+export enum RateQuoteStatus {
+  Active = 'Active',
+  Inactive = 'Inactive',
+}
+
+export enum OfferInTournamentStatus {
+  Active = 'Active',
+  Inactive = 'Inactive',
+}
+type TournamentTimestamps = {
+  createdAt: number
+  deletedAt?: number
+  updatedAt: number
+}
+export interface Tournament_Firestore {
+  id: TournamentID
+  title: string
+  description: string
+  tournamentLink?: string
+  timestamps: TournamentTimestamps
+  creatorId: UserID
+  magicLink?: string
+  tournamentDate?: number
+  prize?: string
+  coverPhoto?: string
+  communityURL?: string
+  streams?: Stream[]
+  affiliateAdIds?: string[]
+  organizer?: AffiliateID
+  promoters?: AffiliateID[]
+  advertisers?: AdvertiserID[]
+  offers?: {
+    [key: string]: {
+      id: OfferID
+      status: OfferInTournamentStatus
+      rateQuotes: RateQuoteID[]
+      adSets: {
+        [key: string]: OfferInTournamentStatus
+      }
+    }
+  }
+}
+
+enum StreamType {
+  facebook = 'facebook',
+  twitch = 'twitch',
+  discord = 'discord',
+  youtube = 'youtube',
+}
+
+export interface Stream {
+  id: StreamID
+  creatorId: UserID
+  type: StreamType
+  url: string
+  name: string
+  tournamentId: TournamentID
+  timestamps: {
+    createdAt: number
+    updatedAt: number
+    deletedAt?: number
+  }
 }
