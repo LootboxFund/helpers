@@ -1,3 +1,4 @@
+import { ActivationID, ActivationStatus, MeasurementPartnerType } from './advertiser.type'
 import {
   AdEventID,
   AdEventNonce,
@@ -13,6 +14,8 @@ import {
   UserID,
 } from './base.type'
 
+export type MMPActivationAlias = string
+
 export interface AdEvent_Firestore {
   id: AdEventID
   timestamp: number
@@ -20,12 +23,15 @@ export interface AdEvent_Firestore {
   adSetId?: AdSetID
   sessionId?: SessionID
   campaignId?: CampaignID
-  flightId: FlightID
+  flightId?: FlightID
   action: AdEventAction
   claimId?: ClaimID
+  activationEventMmpAlias?: MMPActivationAlias
+  activationID?: ActivationID
   metadata?: EventMetadata
+  extraData?: Record<string, any>
   affiliateAttribution?: AdEventAffiliateAttribution
-  nonce: AdEventNonce
+  nonce?: AdEventNonce
 }
 
 export type EventMetadata = {
@@ -37,6 +43,7 @@ export type EventMetadata = {
 export type AdEventAffiliateAttribution = {
   organizerID?: AffiliateID
   promoterID?: AffiliateID
+  userID?: UserID
 }
 
 export enum AdEventAction {
@@ -44,6 +51,7 @@ export enum AdEventAction {
   Click = 'Click',
   TimerElapsed = 'TimerElapsed',
   VideoTimestamp = 'VideoTimestamp',
+  Activation = 'Activation',
 }
 
 export interface AdFlight_Firestore {
@@ -62,6 +70,8 @@ export interface AdFlight_Firestore {
   timestamp: number
   pixelUrl: string
   clickUrl: string
+  affiliateBaseLink: string
+  mmp: MeasurementPartnerType
   destinationUrl: string
 }
 
@@ -71,4 +81,15 @@ export enum Placement {
   AfterPayout = 'AfterPayout',
   DailySpin = 'DailySpin',
   TicketCarousel = 'TicketCarousel',
+}
+
+export interface Activation_Firestore {
+  id: ActivationID
+  name: string
+  description: string
+  pricing: number
+  status: ActivationStatus
+  mmpAlias: MMPActivationAlias
+  offerID: OfferID
+  count?: number
 }
