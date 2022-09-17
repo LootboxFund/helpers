@@ -93,4 +93,5 @@ export interface Activation_Firestore {
   mmpAlias: MMPActivationAlias
   offerID: OfferID
   count?: number
+  order: number
 }
