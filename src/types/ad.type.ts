@@ -95,3 +95,11 @@ export interface Activation_Firestore {
   count?: number
   order: number
 }
+
+export enum AspectRatio {
+  Square1x1 = 'Square1x1',
+  Portrait9x16 = 'Portrait9x16',
+  Portrait2x3 = 'Portrait2x3',
+  Landscape16x9 = 'Landscape16x9',
+  Tablet4x5 = 'Tablet4x5',
+}
