@@ -4,6 +4,7 @@ import {
   AdEventNonce,
   AdID,
   AdSetID,
+  AdvertiserID,
   AffiliateID,
   CampaignID,
   ClaimID,
@@ -94,6 +95,7 @@ export interface Activation_Firestore {
   offerID: OfferID
   count?: number
   order: number
+  advertiserID: AdvertiserID
 }
 
 export enum AspectRatio {
