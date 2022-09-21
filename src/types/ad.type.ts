@@ -20,15 +20,17 @@ export type MMPActivationAlias = string
 export interface AdEvent_Firestore {
   id: AdEventID
   timestamp: number
-  adId?: AdID
-  adSetId?: AdSetID
-  sessionId?: SessionID
-  campaignId?: CampaignID
-  flightId?: FlightID
+  adID?: AdID
+  adSetID?: AdSetID
+  sessionID?: SessionID
+  campaignID?: CampaignID
+  flightID?: FlightID
   action: AdEventAction
-  claimId?: ClaimID
+  claimID?: ClaimID
   activationEventMmpAlias?: MMPActivationAlias
   activationID?: ActivationID
+  offerID?: OfferID
+  advertiserID?: AdvertiserID
   metadata?: EventMetadata
   extraData?: Record<string, any>
   affiliateAttribution?: AdEventAffiliateAttribution
@@ -69,6 +71,7 @@ export interface AdFlight_Firestore {
   tournamentID?: TournamentID
   organizerID?: AffiliateID
   promoterID?: AffiliateID
+  advertiserID: AdvertiserID
   timestamp: number
   pixelUrl: string
   clickUrl: string

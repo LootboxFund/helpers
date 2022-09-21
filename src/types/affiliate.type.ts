@@ -150,6 +150,7 @@ export interface Memo_Firestore {
   activationID: ActivationID
   mmpAlias: MMPActivationAlias
   mmp: MeasurementPartnerType
+  userID?: UserID
   flightID?: FlightID
   tournamentID?: TournamentID
   note: string
