@@ -20,4 +20,6 @@ export enum Collection {
   'Conquest' = 'conquest',
   'RateQuote' = 'rate-quote',
   'Flight' = 'flight',
+  'LootboxTournamentSnapshot' = 'lootbox-tournament-snapshot',
+  'MintWhiteList' = 'mint-whitelist',
 }
