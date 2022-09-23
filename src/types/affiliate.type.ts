@@ -199,9 +199,10 @@ export enum OfferInTournamentStatus {
 }
 type TournamentTimestamps = {
   createdAt: number
-  deletedAt?: number
+  deletedAt: number | null
   updatedAt: number
 }
+
 export interface Tournament_Firestore {
   id: TournamentID
   title: string
@@ -219,6 +220,7 @@ export interface Tournament_Firestore {
   organizer?: AffiliateID
   promoters?: AffiliateID[]
   advertisers?: AdvertiserID[]
+  isPostCosmic?: boolean // To be removed soon
   offers?: {
     [key: string]: {
       id: OfferID
