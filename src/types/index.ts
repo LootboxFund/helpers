@@ -1,7 +1,7 @@
 export * from './base.type'
 export * from './tokens.type'
 export * from './chain.type'
-export * from './lootbox.type'
+// export * from './lootbox.type'
 export * from './database.type'
 export * from './currency.type'
 export * from './affiliate.type'
