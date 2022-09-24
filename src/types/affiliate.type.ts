@@ -227,10 +227,15 @@ export interface Tournament_Firestore {
       status: OfferInTournamentStatus
       rateQuotes: RateQuoteID[]
       adSets: {
-        [key: string]: OfferInTournamentStatus
+        [key: string]: AdSetInTournamentStatus
       }
     }
   }
+}
+
+export enum AdSetInTournamentStatus {
+  Active = 'Active',
+  Inactive = 'Inactive',
 }
 
 enum StreamType {
