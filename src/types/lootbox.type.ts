@@ -1,7 +1,30 @@
-import { Address } from './base.type'
+import {
+  Address,
+  ClaimID,
+  LootboxID,
+  LootboxMintWhitelistID,
+  LootboxTicketID,
+  LootboxTicketID_Web3,
+  UserID,
+} from './base.type'
 import { ChainIDHex } from './base.type'
 import { ILootboxMetadata } from './tokens.type'
 
+export interface LootboxTicket_Firestore {
+  id: LootboxTicketID
+  lootboxID: LootboxID
+  lootboxAddress: Address
+  ticketID: LootboxTicketID_Web3
+  minterUserID: UserID
+  minterAddress: Address
+  mintWhitelistID: LootboxMintWhitelistID
+  createdAt: number
+  stampImage: string
+  metadataURL: string
+  claimID: ClaimID | null
+}
+
+/** @deprecated */
 export interface LootboxDatabaseSchema {
   address: Address
   factory: Address

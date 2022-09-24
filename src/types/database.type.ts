@@ -22,4 +22,5 @@ export enum Collection {
   'Flight' = 'flight',
   'LootboxTournamentSnapshot' = 'lootbox-tournament-snapshot',
   'MintWhiteList' = 'mint-whitelist',
+  'LootboxTicket' = 'lootbox-ticket',
 }

@@ -80,6 +80,7 @@ interface OpenSeaAttributes {
   display_type?: string
 }
 
+/** @deprecated - use LootboxTicket_Firestore type */
 export interface ITicketMetadata {
   image: string // the stamp
   external_url: string
@@ -114,6 +115,7 @@ export type ABIUtilRepresenation = {
   keys: string[]
 }
 
+/** @deprecated */
 export interface ITicketMetadataDeprecated {
   address: ContractAddress
   name: string | undefined
