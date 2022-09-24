@@ -1,5 +1,5 @@
 import { Address, ChainIDHex, Url } from './base.type'
-import { LootboxTicketMetadataV2_Firestore } from './lootbox.type'
+import { LootboxTicketMetadataV2_Firestore } from './tokens.type'
 
 export interface StampNewTicketProps {
   backgroundImage: Url
