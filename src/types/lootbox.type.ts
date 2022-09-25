@@ -28,7 +28,6 @@ export interface Lootbox_Firestore {
   creatorAddress: Address
   chainIdHex: string
   variant: LootboxVariant_Firestore
-  issuer: UserID
   chainIdDecimal: string
   chainName: string
   transactionHash: string
