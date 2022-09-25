@@ -34,3 +34,7 @@ export type MemoID = string & { readonly _: unique symbol }
 export type RateQuoteID = string & {
   readonly _: unique symbol
 }
+export type LootboxMintWhitelistID = string & { readonly _: unique symbol }
+export type LootboxMintSignatureNonce = string & { readonly _: unique symbol }
+export type LootboxTicketID = string & { readonly _: unique symbol }
+export type LootboxTicketID_Web3 = string & { readonly _: unique symbol }

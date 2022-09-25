@@ -1,28 +1,56 @@
-import { Address } from './base.type'
-import { ChainIDHex } from './base.type'
-import { ILootboxMetadata } from './tokens.type'
+import { Address, LootboxID, UserID } from './base.type'
+import { LootboxMetadata_Firestore } from './tokens.type'
 
-export interface LootboxDatabaseSchema {
+export enum LootboxVariant_Firestore {
+  escrow = 'escrow',
+  instant = 'instant',
+  cosmic = 'cosmic',
+}
+
+export enum LootboxStatus_Firestore {
+  active,
+  disabled,
+  soldOut,
+}
+
+export type LootboxTimestamps = {
+  createdAt: number
+  updatedAt: number
+  deletedAt: number | null
+}
+
+export interface Lootbox_Firestore {
+  // Immutable
+  id: LootboxID
   address: Address
   factory: Address
+  creatorID: UserID
+  creatorAddress: Address
+  chainIdHex: string
+  variant: LootboxVariant_Firestore
+  issuer: UserID
+  chainIdDecimal: string
+  chainName: string
+  transactionHash: string
+  blockNumber: string
+  version: string
+  stampImage: string
 
-  name: string // warning this is duped in metadata
-  chainIdHex: ChainIDHex // warning this is duped in metadata
-  variant: 'escrow' | 'instant'
+  // Mutable
+  logo: string
+  name: string
+  description: string
+  nftBountyValue?: string
+  joinCommunityUrl?: string
+  status?: LootboxStatus_Firestore
+  maxTickets: number
+  backgroundImage: string
+  badgeImage?: string
+  themeColor: string
 
-  // Emitted in lootbox created event
-  issuer: Address
-  treasury: Address
-  targetSharesSold: string
-  maxSharesSold: string
-
-  // From Block Trigger Event
-  timestamps: {
-    lootboxCreatedAt: number
-    lootboxIndexedAt: number
-  }
-
-  // Metadata
-  metadataDownloadUrl: string
-  metadata: ILootboxMetadata
+  timestamps: LootboxTimestamps
+  // metadataDownloadUrl: string;
+  // metadataV2: LootboxMetadataV2_Firestore;
+  /** @deprecated */
+  metadata?: LootboxMetadata_Firestore
 }
