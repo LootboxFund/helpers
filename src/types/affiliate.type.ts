@@ -65,8 +65,8 @@ export type RateCardID = string & { readonly _: unique symbol }
 
 export enum OrganizerRank {
   ClayRank1 = 'ClayRank1',
-  IronRank2 = 'IronRank2',
-  BronzeRank3 = 'BronzeRank3',
+  BronzeRank2 = 'BronzeRank2',
+  IronRank3 = 'IronRank3',
   SilverRank4 = 'SilverRank4',
   GoldRank5 = 'GoldRank5',
   PlatinumRank6 = 'PlatinumRank6',
@@ -89,19 +89,19 @@ export const rankInfoTable: Record<OrganizerRank, RankInfo> = {
     color: '#c2720a',
     revenueShare: 0.5,
   },
-  IronRank2: {
-    slug: OrganizerRank.IronRank2,
-    name: 'Iron - Rank 2',
+  BronzeRank2: {
+    slug: OrganizerRank.BronzeRank2,
+    name: 'Bronze - Rank 2',
+    description: 'Bronze Rank 2',
+    color: '#c2720a',
+    revenueShare: 0.7,
+  },
+  IronRank3: {
+    slug: OrganizerRank.IronRank3,
+    name: 'Iron - Rank 3',
     description: 'For tournament organizers with some experience. To be promoted to Rank 3, you must...',
     color: '#c2720a',
     revenueShare: 0.65,
-  },
-  BronzeRank3: {
-    slug: OrganizerRank.BronzeRank3,
-    name: 'Bronze - Rank 3',
-    description: 'Bronze Rank 3',
-    color: '#c2720a',
-    revenueShare: 0.7,
   },
   SilverRank4: {
     slug: OrganizerRank.SilverRank4,
