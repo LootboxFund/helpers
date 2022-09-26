@@ -1,4 +1,4 @@
-import { Address, ChainIDDecimal, ChainIDHex, LootboxID, UserID } from './base.type'
+import { Address, ChainIDDecimal, ChainIDHex, LootboxCreatedNonce, LootboxID, UserID } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
 export enum LootboxVariant_Firestore {
@@ -32,8 +32,8 @@ export interface Lootbox_Firestore {
   chainName: string
   transactionHash: string
   blockNumber: string
-  // version: string
   stampImage: string
+  baseTokenURI: string
 
   // Mutable
   logo: string
@@ -58,7 +58,8 @@ export interface EnqueueLootboxOnCreateCallableRequest {
   fromBlock: number
   chainIdHex: ChainIDHex
   payload: {
-    factory: Address
+    /** Used to find the correct lootbox */
+    nonce: LootboxCreatedNonce
     lootboxDescription: string
     backgroundImage: string
     logoImage: string
