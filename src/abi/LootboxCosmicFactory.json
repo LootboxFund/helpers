@@ -50,7 +50,13 @@
       {
         "indexed": false,
         "internalType": "string",
-        "name": "_data",
+        "name": "baseTokenURI",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "_nonce",
         "type": "string"
       }
     ],
@@ -216,7 +222,7 @@
       },
       {
         "internalType": "string",
-        "name": "_data",
+        "name": "_nonce",
         "type": "string"
       }
     ],

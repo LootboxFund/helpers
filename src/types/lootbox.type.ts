@@ -32,7 +32,7 @@ export interface Lootbox_Firestore {
   chainName: string
   transactionHash: string
   blockNumber: string
-  version: string
+  // version: string
   stampImage: string
 
   // Mutable
