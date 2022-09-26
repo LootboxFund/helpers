@@ -1,4 +1,4 @@
-import { Address, LootboxID, UserID } from './base.type'
+import { Address, ChainIDDecimal, ChainIDHex, LootboxID, UserID } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
 export enum LootboxVariant_Firestore {
@@ -26,9 +26,9 @@ export interface Lootbox_Firestore {
   factory: Address
   creatorID: UserID
   creatorAddress: Address
-  chainIdHex: string
+  chainIdHex: ChainIDHex
   variant: LootboxVariant_Firestore
-  chainIdDecimal: string
+  chainIdDecimal: ChainIDDecimal
   chainName: string
   transactionHash: string
   blockNumber: string
@@ -44,7 +44,6 @@ export interface Lootbox_Firestore {
   status?: LootboxStatus_Firestore
   maxTickets: number
   backgroundImage: string
-  badgeImage?: string
   themeColor: string
 
   timestamps: LootboxTimestamps
@@ -52,4 +51,19 @@ export interface Lootbox_Firestore {
   // metadataV2: LootboxMetadataV2_Firestore;
   /** @deprecated */
   metadata?: LootboxMetadata_Firestore
+}
+
+export interface EnqueueLootboxOnCreateCallableRequest {
+  listenAddress: Address
+  fromBlock: number
+  chainIdHex: ChainIDHex
+  payload: {
+    factory: Address
+    lootboxDescription: string
+    backgroundImage: string
+    logoImage: string
+    themeColor: string
+    nftBountyValue: string
+    joinCommunityUrl?: string
+  }
 }

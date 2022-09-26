@@ -17,6 +17,6 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "src/abi/*"],
+  "include": ["src", "src/abi/*.json"],
   "exclude": ["node_modules", "/lib"]
 }
