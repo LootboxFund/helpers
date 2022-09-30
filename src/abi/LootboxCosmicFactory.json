@@ -54,7 +54,7 @@
         "type": "string"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "string",
         "name": "_nonce",
         "type": "string"

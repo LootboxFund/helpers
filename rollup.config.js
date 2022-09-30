@@ -18,8 +18,8 @@ const configCJSLib = {
     commonjs(), // enable CommonJS modules
     nodePolyfills(), // enable NodeJS polyfills
     resolve({ preferBuiltins: true, browser: true }), // enable importing from node_modules
-    typescript(), // enable TypeScript
-    json(), // enable JSON
+    typescript({ resolveJsonModule: true }), // enable TypeScript
+    json({ compact: true }), // enable JSON
     globals(), // allows globals to be imported (process.env)
     builtins(), // allows builtins to be imported via require/import
   ],

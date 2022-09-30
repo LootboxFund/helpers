@@ -68,7 +68,8 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     chainName: 'Polygon Mumbai (Testnet)',
     displayName: 'Mumbai',
     nativeCurrency: { name: 'Matic', symbol: 'MATIC', decimals: 18 },
-    rpcUrls: ['https://rpc-mumbai.matic.today'],
+    rpcUrls: ['https://rpc-mumbai.maticvigil.com'],
+    // rpcUrls: ['https://rpc-mumbai.matic.today'],
     blockExplorerUrls: ['https://mumbai.polygonscan.com/'],
     currentNetworkLogo:
       'https://firebasestorage.googleapis.com/v0/b/guildfx-exchange.appspot.com/o/assets%2Ftokens%2FMATIC_COLORED.png?alt=media',
