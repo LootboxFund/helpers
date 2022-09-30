@@ -30,6 +30,7 @@ export interface Lootbox_Firestore {
   variant: LootboxVariant_Firestore
   chainIdDecimal: ChainIDDecimal
   chainName: string
+  symbol: string
   transactionHash: string
   blockNumber: string
   stampImage: string
