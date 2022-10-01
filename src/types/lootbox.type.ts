@@ -77,6 +77,7 @@ export interface EnqueueLootboxOnCreateCallableRequest {
     nftBountyValue: string
     joinCommunityUrl?: string
     symbol: string // todo move to contract event
+    tournamentID?: TournamentID
   }
 }
 
