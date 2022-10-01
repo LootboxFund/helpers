@@ -39,3 +39,6 @@ export type LootboxMintSignatureNonce = string & { readonly _: unique symbol }
 export type LootboxTicketID = string & { readonly _: unique symbol }
 export type LootboxTicketID_Web3 = string & { readonly _: unique symbol }
 export type LootboxCreatedNonce = string & { readonly _: unique symbol }
+export type LootboxTournamentSnapshotID = string & {
+  readonly _: unique symbol
+}

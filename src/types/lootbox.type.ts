@@ -1,4 +1,12 @@
-import { Address, ChainIDDecimal, ChainIDHex, LootboxCreatedNonce, LootboxID, UserID } from './base.type'
+import {
+  Address,
+  ChainIDDecimal,
+  ChainIDHex,
+  LootboxCreatedNonce,
+  LootboxID,
+  UserID,
+  LootboxTournamentSnapshotID,
+} from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
 export enum LootboxVariant_Firestore {
@@ -69,4 +77,32 @@ export interface EnqueueLootboxOnCreateCallableRequest {
     joinCommunityUrl?: string
     symbol: string // todo move to contract event
   }
+}
+
+export enum LootboxTournamentStatus_Firestore {
+  active,
+  disabled,
+}
+
+export type LootboxSnapshotTimestamps = {
+  createdAt: number
+  updatedAt: number
+  deletedAt: number | null
+}
+
+export interface LootboxTournamentSnapshot_Firestore {
+  id: LootboxTournamentSnapshotID
+  address: Address
+  lootboxID: LootboxID
+  creatorID: string
+  lootboxCreatorID: UserID
+  description: string
+  name: string
+  stampImage: string
+  timestamps: LootboxSnapshotTimestamps
+  status: LootboxTournamentStatus_Firestore
+  // backgroundImage: string;
+  // image: string;
+  // metadataDownloadUrl: string;
+  // socials: LootboxSocialsWithoutEmail_Firestore;
 }
