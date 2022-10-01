@@ -1,6 +1,6 @@
 {
   "name": "@wormgraph/helpers",
-  "version": "0.2.0-afn-alpha46",
+  "version": "0.2.0-afn-alpha71",
   "main": "lib/index.js",
   "author": "0xterran",
   "license": "private",
@@ -40,7 +40,7 @@
   },
   "scripts": {
     "watch": "rollup -c -w",
-    "build": "rollup -c",
+    "build": "rollup -c && cp -a ./src/abi/. ./lib/abi/.",
     "test": "jest --verbose --watch",
     "storybook": "start-storybook",
     "build-storybook": "build-storybook",

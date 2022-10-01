@@ -19,3 +19,16 @@ export interface StampNewTicketResponse {
   uri: string
   message: string
 }
+
+// stamp the lootbox
+export interface StampNewLootboxProps {
+  backgroundImage: Url
+  badgeImage?: Url
+  logoImage: Url
+  themeColor: string
+  name: string
+  ticketID: string
+  lootboxAddress: Address
+  chainIdHex: ChainIDHex
+  maxTickets: string
+}
