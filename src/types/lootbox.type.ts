@@ -104,6 +104,7 @@ export interface LootboxTournamentSnapshot_Firestore {
   stampImage: string
   timestamps: LootboxSnapshotTimestamps
   status: LootboxTournamentStatus_Firestore
+  impressionPriority: number // higher priority will be shown first starts at 0
   // backgroundImage: string;
   // image: string;
   // metadataDownloadUrl: string;
