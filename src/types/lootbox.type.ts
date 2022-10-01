@@ -6,6 +6,7 @@ import {
   LootboxID,
   UserID,
   LootboxTournamentSnapshotID,
+  TournamentID,
 } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
@@ -96,6 +97,7 @@ export interface LootboxTournamentSnapshot_Firestore {
   lootboxID: LootboxID
   creatorID: string
   lootboxCreatorID: UserID
+  tournamentID: TournamentID
   description: string
   name: string
   stampImage: string
