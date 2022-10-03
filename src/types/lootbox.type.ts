@@ -17,9 +17,9 @@ export enum LootboxVariant_Firestore {
 }
 
 export enum LootboxStatus_Firestore {
-  active,
-  disabled,
-  soldOut,
+  active = 'active',
+  disabled = 'disabled',
+  soldOut = 'soldOut',
 }
 
 export type LootboxTimestamps = {
@@ -82,8 +82,8 @@ export interface EnqueueLootboxOnCreateCallableRequest {
 }
 
 export enum LootboxTournamentStatus_Firestore {
-  active,
-  disabled,
+  active = 'active',
+  disabled = 'disabled',
 }
 
 export type LootboxSnapshotTimestamps = {
