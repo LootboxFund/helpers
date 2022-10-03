@@ -44,6 +44,7 @@ export interface Lootbox_Firestore {
   blockNumber: string
   stampImage: string
   baseTokenURI: string
+  runningCompletedClaims: number
 
   // Mutable
   logo: string
