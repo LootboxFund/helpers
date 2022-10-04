@@ -3298,14 +3298,6 @@
     axios "0.25.0"
     lodash "4.17.21"
 
-"@wormgraph/helpers@0.1.14-afn-alpha4":
-  version "0.1.14-afn-alpha4"
-  resolved "https://registry.yarnpkg.com/@wormgraph/helpers/-/helpers-0.1.14-afn-alpha4.tgz#d21256e54e2068418668dfc2a2ed63af6fd26973"
-  integrity sha512-h9Tv6tZ3lG8POy2GiZFH1qKwatoOjUGBCXLwjkfR4HiKkxB7JlOl3bgP75/xEXdVHSbcvj12dm93uQjsF2fCzw==
-  dependencies:
-    axios "0.25.0"
-    lodash "4.17.21"
-
 "@wormgraph/manifest@0.4.0-afm-alpha1":
   version "0.4.0-afm-alpha1"
   resolved "https://registry.yarnpkg.com/@wormgraph/manifest/-/manifest-0.4.0-afm-alpha1.tgz#7e162c7f8d1a31352464ffb9fc38446bd98b5c29"

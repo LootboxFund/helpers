@@ -1,6 +1,6 @@
 {
   "name": "@wormgraph/helpers",
-  "version": "0.2.0-afn-alpha71",
+  "version": "0.2.0-afn-alpha83",
   "main": "lib/index.js",
   "author": "0xterran",
   "license": "private",
@@ -40,14 +40,13 @@
   },
   "scripts": {
     "watch": "rollup -c -w",
-    "build": "rollup -c && cp -a ./src/abi/. ./lib/abi/.",
+    "build": "rollup -c && mkdir -p ./lib/abi/ && cp -a ./src/abi/. ./lib/abi/.",
     "test": "jest --verbose --watch",
     "storybook": "start-storybook",
     "build-storybook": "build-storybook",
     "publish:prod": "rollup -c && npm publish"
   },
   "dependencies": {
-    "@wormgraph/helpers": "0.1.14-afn-alpha4",
     "@wormgraph/manifest": "0.4.0-afm-alpha1",
     "axios": "0.25.0",
     "lodash": "4.17.21"

@@ -7,6 +7,8 @@ import {
   UserID,
   LootboxTournamentSnapshotID,
   TournamentID,
+  LootboxMintWhitelistID,
+  LootboxMintSignatureNonce,
 } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
@@ -17,9 +19,9 @@ export enum LootboxVariant_Firestore {
 }
 
 export enum LootboxStatus_Firestore {
-  active,
-  disabled,
-  soldOut,
+  active = 'active',
+  disabled = 'disabled',
+  soldOut = 'soldOut',
 }
 
 export type LootboxTimestamps = {
@@ -44,6 +46,7 @@ export interface Lootbox_Firestore {
   blockNumber: string
   stampImage: string
   baseTokenURI: string
+  runningCompletedClaims: number
 
   // Mutable
   logo: string
@@ -82,8 +85,8 @@ export interface EnqueueLootboxOnCreateCallableRequest {
 }
 
 export enum LootboxTournamentStatus_Firestore {
-  active,
-  disabled,
+  active = 'active',
+  disabled = 'disabled',
 }
 
 export type LootboxSnapshotTimestamps = {
@@ -104,8 +107,22 @@ export interface LootboxTournamentSnapshot_Firestore {
   stampImage: string
   timestamps: LootboxSnapshotTimestamps
   status: LootboxTournamentStatus_Firestore
+  impressionPriority: number // higher priority will be shown first starts at 0
   // backgroundImage: string;
   // image: string;
   // metadataDownloadUrl: string;
   // socials: LootboxSocialsWithoutEmail_Firestore;
+}
+
+export type MintWhitelistSignature_Firestore = {
+  id: LootboxMintWhitelistID
+  signature: string
+  signer: Address
+  whitelistedAddress: Address
+  lootboxAddress: Address
+  isRedeemed: boolean
+  createdAt: number
+  updatedAt: number
+  deletedAt: number | null
+  nonce: LootboxMintSignatureNonce
 }
