@@ -2,8 +2,10 @@ import {
   Address,
   ClaimID,
   LootboxID,
+  LootboxMintWhitelistID,
   PartyBasketID,
   ReferralID,
+  ReferralSlug,
   TournamentID,
   UserID,
   WhitelistSignatureID,
@@ -13,7 +15,7 @@ export interface Referral_Firestore {
   id: ReferralID
   referrerId: UserID
   creatorId: UserID
-  slug: string
+  slug: ReferralSlug
   tournamentId: TournamentID
   campaignName: string
   nConversions: number
@@ -64,7 +66,7 @@ export interface Claim_Firestore {
   referrerId: UserID | null
   referralCampaignName?: string
   referralId: ReferralID
-  referralSlug: string
+  referralSlug: ReferralSlug
   referralType: ReferralType_Firestore
   tournamentId: TournamentID
   tournamentName: string
@@ -74,7 +76,7 @@ export interface Claim_Firestore {
   lootboxName?: string
   lootboxNFTBountyValue?: string
   lootboxMaxTickets?: number
-  whitelistId: WhitelistSignatureID | null
+  whitelistId: LootboxMintWhitelistID | null
   rewardFromClaim?: ClaimID
   rewardFromFriendReferred?: UserID
   isPostCosmic?: boolean

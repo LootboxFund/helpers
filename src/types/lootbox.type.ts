@@ -7,6 +7,8 @@ import {
   UserID,
   LootboxTournamentSnapshotID,
   TournamentID,
+  LootboxMintWhitelistID,
+  LootboxMintSignatureNonce,
 } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
@@ -110,4 +112,17 @@ export interface LootboxTournamentSnapshot_Firestore {
   // image: string;
   // metadataDownloadUrl: string;
   // socials: LootboxSocialsWithoutEmail_Firestore;
+}
+
+export type MintWhitelistSignature_Firestore = {
+  id: LootboxMintWhitelistID
+  signature: string
+  signer: Address
+  whitelistedAddress: Address
+  lootboxAddress: Address
+  isRedeemed: boolean
+  createdAt: number
+  updatedAt: number
+  deletedAt: number | null
+  nonce: LootboxMintSignatureNonce
 }
