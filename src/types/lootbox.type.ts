@@ -9,6 +9,7 @@ import {
   TournamentID,
   LootboxMintWhitelistID,
   LootboxMintSignatureNonce,
+  LootboxTicketID,
 } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
@@ -125,4 +126,6 @@ export type MintWhitelistSignature_Firestore = {
   updatedAt: number
   deletedAt: number | null
   nonce: LootboxMintSignatureNonce
+  lootboxTicketID: LootboxTicketID | null
+  lootboxID: LootboxID
 }
