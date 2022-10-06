@@ -10,6 +10,8 @@ import {
   LootboxMintWhitelistID,
   LootboxMintSignatureNonce,
   LootboxTicketID,
+  LootboxTicketDigest,
+  LootboxTicketNonce,
 } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
@@ -85,6 +87,13 @@ export interface EnqueueLootboxOnCreateCallableRequest {
   }
 }
 
+export interface EnqueueLootboxOnMintCallableRequest {
+  fromBlock: number
+  lootboxAddress: Address
+  nonce: LootboxTicketNonce
+  chainIDHex: ChainIDHex
+}
+
 export enum LootboxTournamentStatus_Firestore {
   active = 'active',
   disabled = 'disabled',
@@ -128,4 +137,5 @@ export type MintWhitelistSignature_Firestore = {
   nonce: LootboxMintSignatureNonce
   lootboxTicketID: LootboxTicketID | null
   lootboxID: LootboxID
+  digest: LootboxTicketDigest
 }
