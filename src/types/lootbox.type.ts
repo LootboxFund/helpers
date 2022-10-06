@@ -11,7 +11,6 @@ import {
   LootboxMintSignatureNonce,
   LootboxTicketID,
   LootboxTicketDigest,
-  LootboxTicketNonce,
 } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
@@ -90,7 +89,7 @@ export interface EnqueueLootboxOnCreateCallableRequest {
 export interface EnqueueLootboxOnMintCallableRequest {
   fromBlock: number
   lootboxAddress: Address
-  nonce: LootboxTicketNonce
+  nonce: LootboxMintSignatureNonce
   chainIDHex: ChainIDHex
 }
 

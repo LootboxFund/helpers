@@ -12,7 +12,7 @@ import {
   UserID,
   LootboxID,
   LootboxTicketID,
-  LootboxTicketNonce,
+  LootboxMintSignatureNonce,
 } from './base.type'
 
 export interface LootboxTicket_Firestore {
@@ -28,7 +28,7 @@ export interface LootboxTicket_Firestore {
   metadataURL: string
   // claimID: ClaimID | null
   digest: string
-  nonce: LootboxTicketNonce
+  nonce: LootboxMintSignatureNonce
 }
 
 export interface LootboxTicketCustomSchemaV2 {
