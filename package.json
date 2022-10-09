@@ -1,6 +1,6 @@
 {
   "name": "@wormgraph/helpers",
-  "version": "0.2.0-afn-alpha83",
+  "version": "0.2.0-afn-alpha93",
   "main": "lib/index.js",
   "author": "0xterran",
   "license": "private",
