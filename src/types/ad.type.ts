@@ -110,18 +110,18 @@ export enum AspectRatio {
 }
 
 export interface PixelTrackingParams {
-  flightId: FlightID | null
-  userId: UserID | null
-  adId: AdID | null
-  adSetId: AdSetID | null
-  offerId: OfferID | null
-  claimId: ClaimID | null
-  campaignId: CampaignID | null
-  tournamentId: TournamentID | null
-  organizerID: AffiliateID | null
-  promoterID: AffiliateID | null
-  sessionId: SessionID | null
-  eventAction: AdEventAction | null
-  nonce: AdEventNonce | null
-  timeElapsed: number | null
+  flightId: FlightID | null | undefined
+  userId: UserID | null | undefined
+  adId: AdID | null | undefined
+  adSetId: AdSetID | null | undefined
+  offerId: OfferID | null | undefined
+  claimId: ClaimID | null | undefined
+  campaignId: CampaignID | null | undefined
+  tournamentId: TournamentID | null | undefined
+  organizerID: AffiliateID | null | undefined
+  promoterID: AffiliateID | null | undefined
+  sessionId: SessionID | null | undefined
+  eventAction: AdEventAction | null | undefined
+  nonce: AdEventNonce | null | undefined
+  timeElapsed: number | null | undefined
 }
