@@ -7,10 +7,9 @@ export interface StampNewTicketProps {
   logoImage: Url
   themeColor: string
   name: string
-  ticketID: string
+  ticketID: string | null
   lootboxAddress: Address
   chainIdHex: ChainIDHex
-  numShares: string
   metadata: LootboxTicketMetadataV2_Firestore
 }
 
@@ -22,13 +21,15 @@ export interface StampNewTicketResponse {
 
 // stamp the lootbox
 export interface StampNewLootboxProps {
-  backgroundImage: Url
-  badgeImage?: Url
-  logoImage: Url
+  backgroundImage: string
+  logoImage: string
   themeColor: string
   name: string
-  ticketID: string
   lootboxAddress: Address
   chainIdHex: ChainIDHex
-  maxTickets: string
+}
+
+export interface StampNewLootboxResponse {
+  message: string
+  stamp: string
 }
