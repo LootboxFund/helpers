@@ -108,3 +108,20 @@ export enum AspectRatio {
   Landscape16x9 = 'Landscape16x9',
   Tablet4x5 = 'Tablet4x5',
 }
+
+export interface PixelTrackingParams {
+  flightId: FlightID | null | undefined
+  userId: UserID | null | undefined
+  adId: AdID | null | undefined
+  adSetId: AdSetID | null | undefined
+  offerId: OfferID | null | undefined
+  claimId: ClaimID | null | undefined
+  campaignId: CampaignID | null | undefined
+  tournamentId: TournamentID | null | undefined
+  organizerID: AffiliateID | null | undefined
+  promoterID: AffiliateID | null | undefined
+  sessionId: SessionID | null | undefined
+  eventAction: AdEventAction | null | undefined
+  nonce: AdEventNonce | null | undefined
+  timeElapsed: number | null | undefined
+}
