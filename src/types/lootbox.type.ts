@@ -9,6 +9,8 @@ import {
   TournamentID,
   LootboxMintWhitelistID,
   LootboxMintSignatureNonce,
+  LootboxTicketID,
+  LootboxTicketDigest,
 } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
@@ -84,6 +86,14 @@ export interface EnqueueLootboxOnCreateCallableRequest {
   }
 }
 
+export interface EnqueueLootboxOnMintCallableRequest {
+  fromBlock: number
+  lootboxAddress: Address
+  nonce: LootboxMintSignatureNonce
+  digest: LootboxTicketDigest
+  chainIDHex: ChainIDHex
+}
+
 export enum LootboxTournamentStatus_Firestore {
   active = 'active',
   disabled = 'disabled',
@@ -108,21 +118,22 @@ export interface LootboxTournamentSnapshot_Firestore {
   timestamps: LootboxSnapshotTimestamps
   status: LootboxTournamentStatus_Firestore
   impressionPriority: number // higher priority will be shown first starts at 0
-  // backgroundImage: string;
-  // image: string;
-  // metadataDownloadUrl: string;
-  // socials: LootboxSocialsWithoutEmail_Firestore;
 }
 
 export type MintWhitelistSignature_Firestore = {
   id: LootboxMintWhitelistID
   signature: string
   signer: Address
-  whitelistedAddress: Address
+  whitelistedAddress: Address // The address that is allowed to mint
+  userID: UserID | null // The whitelisted user ID
   lootboxAddress: Address
   isRedeemed: boolean
   createdAt: number
   updatedAt: number
   deletedAt: number | null
   nonce: LootboxMintSignatureNonce
+  lootboxTicketID: LootboxTicketID | null
+  lootboxID: LootboxID
+  digest: LootboxTicketDigest
+  whitelistedAt?: number | null
 }
