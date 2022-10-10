@@ -1,5 +1,6 @@
 import {
   Address,
+  AffiliateID,
   ClaimID,
   LootboxID,
   LootboxMintWhitelistID,
@@ -15,6 +16,7 @@ export interface Referral_Firestore {
   id: ReferralID
   referrerId: UserID
   creatorId: UserID
+  promoterId?: AffiliateID
   slug: ReferralSlug
   tournamentId: TournamentID
   campaignName: string
@@ -68,6 +70,7 @@ export interface Claim_Firestore {
   referralId: ReferralID
   referralSlug: ReferralSlug
   referralType: ReferralType_Firestore
+  promoterId?: AffiliateID
   tournamentId: TournamentID
   tournamentName: string
   originLootboxId?: LootboxID

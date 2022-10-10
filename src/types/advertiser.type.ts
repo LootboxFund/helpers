@@ -18,6 +18,8 @@
  * However they just need time to get the funds in
  */
 
+import { FlightID, OfferID, TournamentID, UserID } from './base.type'
+
 export enum OfferStatus {
   Active = 'Active',
   Inactive = 'Inactive',
@@ -44,8 +46,71 @@ export type AffiliateBaseLink = string
 
 export enum MeasurementPartnerType {
   Appsflyer = 'Appsflyer',
-  LootboxPixel = 'LootboxPixel',
+  GoogleTagManager = 'GoogleTagManager',
+  ServerToServer = 'ServerToServer',
+  LootboxAppWebsiteVisit = 'LootboxAppWebsiteVisit',
   Manual = 'Manual',
+}
+
+export const mmpTable = {
+  [MeasurementPartnerType.Appsflyer]: {
+    title: 'AppsFlyer',
+    description: 'AppsFlyer',
+    learnMore: 'https://www.appsflyer.com/',
+  },
+  [MeasurementPartnerType.GoogleTagManager]: {
+    title: 'Google Tag Manager',
+    description: 'Google Tag Manager',
+    learnMore: 'https://tagmanager.google.com/',
+  },
+  [MeasurementPartnerType.LootboxAppWebsiteVisit]: {
+    title: 'Lootbox App - Website Visit',
+    description: 'Lootbox App - Website Visit',
+    learnMore: 'https://lootbox.fund/',
+  },
+  [MeasurementPartnerType.Manual]: {
+    title: 'Manual',
+    description: 'Manual',
+    learnMore: 'https://lootbox.fund/',
+  },
+  [MeasurementPartnerType.ServerToServer]: {
+    title: 'ServerToServer',
+    description: 'ServerToServer',
+    learnMore: 'https://lootbox.fund/',
+  },
+}
+
+export const tableActivationIngestorRoutes = {
+  [MeasurementPartnerType.Manual]: {
+    path: '/manual',
+    method: 'POST',
+  },
+  [MeasurementPartnerType.Appsflyer]: {
+    path: '/appsflyer',
+    method: 'GET',
+  },
+  [MeasurementPartnerType.LootboxAppWebsiteVisit]: {
+    path: '/lootbox-app/website-visit',
+    method: 'POST',
+  },
+  [MeasurementPartnerType.ServerToServer]: {
+    path: '/server-to-server',
+    method: 'POST',
+  },
+}
+export interface ActivationIngestorRoute_LootboxAppWebsiteVisit_Body {
+  flightID: FlightID
+  activationID: ActivationID
+  mmpAlias: string
+}
+export interface ActivationIngestorRoute_Manual_Body {
+  activationID: ActivationID
+  userID?: UserID
+  userEmail?: string
+  userPhone?: string
+  offerID?: OfferID
+  tournamentID?: TournamentID
+  activationEventMmpAlias?: string
 }
 
 export type AdTargetTagID = string & { readonly _: unique symbol }
