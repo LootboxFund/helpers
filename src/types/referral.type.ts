@@ -57,6 +57,8 @@ export type ClaimTimestamps_Firestore = {
   completedAt: number | null
   updatedAt: number
   deletedAt: number | null
+  whitelistedAt: number | null
+  mintedAt: number | null
 }
 
 export enum ClaimType_Firestore {
