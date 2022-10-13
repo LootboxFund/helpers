@@ -4,6 +4,8 @@ import {
   ClaimID,
   LootboxID,
   LootboxMintWhitelistID,
+  LootboxTicketID,
+  LootboxTicketID_Web3,
   PartyBasketID,
   ReferralID,
   ReferralSlug,
@@ -80,6 +82,8 @@ export interface Claim_Firestore {
   lootboxNFTBountyValue?: string
   lootboxMaxTickets?: number
   whitelistId: LootboxMintWhitelistID | null
+  ticketWeb3ID: LootboxTicketID_Web3 | null
+  ticketID: LootboxTicketID | null
   rewardFromClaim?: ClaimID
   rewardFromFriendReferred?: UserID
   isPostCosmic?: boolean

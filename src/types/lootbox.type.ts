@@ -60,7 +60,7 @@ export interface Lootbox_Firestore {
   maxTickets: number
   backgroundImage: string
   themeColor: string
-
+  creationNonce: LootboxCreatedNonce | null
   timestamps: LootboxTimestamps
   // metadataDownloadUrl: string;
   // metadataV2: LootboxMetadataV2_Firestore;
