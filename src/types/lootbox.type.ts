@@ -12,6 +12,7 @@ import {
   LootboxTicketID,
   LootboxTicketDigest,
   ClaimID,
+  ReferralID,
 } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
@@ -138,4 +139,5 @@ export type MintWhitelistSignature_Firestore = {
   digest: LootboxTicketDigest
   whitelistedAt?: number | null
   claimID: ClaimID
+  referralID: ReferralID
 }
