@@ -47,7 +47,6 @@
     "publish:prod": "rollup -c && npm publish"
   },
   "dependencies": {
-    "@wormgraph/manifest": "0.4.0-afm-alpha1",
     "axios": "0.25.0",
     "lodash": "4.17.21"
   }
