@@ -11,6 +11,8 @@ import {
   LootboxMintSignatureNonce,
   LootboxTicketID,
   LootboxTicketDigest,
+  ClaimID,
+  ReferralID,
 } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
@@ -60,7 +62,7 @@ export interface Lootbox_Firestore {
   maxTickets: number
   backgroundImage: string
   themeColor: string
-
+  creationNonce: LootboxCreatedNonce | null
   timestamps: LootboxTimestamps
   // metadataDownloadUrl: string;
   // metadataV2: LootboxMetadataV2_Firestore;
@@ -136,4 +138,6 @@ export type MintWhitelistSignature_Firestore = {
   lootboxID: LootboxID
   digest: LootboxTicketDigest
   whitelistedAt?: number | null
+  claimID: ClaimID
+  referralID: ReferralID
 }
