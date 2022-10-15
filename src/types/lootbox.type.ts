@@ -50,7 +50,6 @@ export interface Lootbox_Firestore {
   blockNumber: string
   stampImage: string
   baseTokenURI: string
-  runningCompletedClaims: number
 
   // Mutable
   logo: string
@@ -64,12 +63,26 @@ export interface Lootbox_Firestore {
   themeColor: string
   creationNonce: LootboxCreatedNonce | null
   timestamps: LootboxTimestamps
+  runningCompletedClaims: number
+  members?: LootboxMemberRep[]
   // metadataDownloadUrl: string;
   // metadataV2: LootboxMetadataV2_Firestore;
   /** @deprecated */
   metadata?: LootboxMetadata_Firestore
 }
 
+export type LootboxMemberRep = {
+  userID: UserID
+  status: LootboxMemberRepStatus
+  respondedAt: number
+  invitedBy: UserID
+}
+export enum LootboxMemberRepStatus {
+  Invited = 'Invited',
+  Accepted = 'Accepted',
+  Declined = 'Declined',
+  Revoked = 'Revoked',
+}
 export interface EnqueueLootboxOnCreateCallableRequest {
   listenAddress: Address
   fromBlock: number
