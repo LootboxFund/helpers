@@ -221,6 +221,7 @@ export interface Tournament_Firestore {
   promoters?: AffiliateID[]
   advertisers?: AdvertiserID[]
   isPostCosmic?: boolean // To be removed soon
+  runningCompletedClaims?: number
   offers?: {
     [key: string]: {
       id: OfferID
