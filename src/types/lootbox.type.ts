@@ -35,23 +35,7 @@ export type LootboxTimestamps = {
 }
 
 export interface Lootbox_Firestore {
-  // Immutable
   id: LootboxID
-  address: Address
-  factory: Address
-  creatorID: UserID
-  creatorAddress: Address
-  chainIdHex: ChainIDHex
-  variant: LootboxVariant_Firestore
-  chainIdDecimal: ChainIDDecimal
-  chainName: string
-  symbol: string
-  transactionHash: string
-  blockNumber: string
-  stampImage: string
-  baseTokenURI: string
-
-  // Mutable
   logo: string
   name: string
   description: string
@@ -61,15 +45,63 @@ export interface Lootbox_Firestore {
   maxTickets: number
   backgroundImage: string
   themeColor: string
-  creationNonce: LootboxCreatedNonce | null
-  timestamps: LootboxTimestamps
   runningCompletedClaims: number
+  timestamps: LootboxTimestamps
+  stampImage: string
   members?: LootboxMemberRep[]
-  // metadataDownloadUrl: string;
-  // metadataV2: LootboxMetadataV2_Firestore;
-  /** @deprecated */
-  metadata?: LootboxMetadata_Firestore
+
+  // Web3 things
+  address: Address | null
+  factory: Address | null
+  creatorID: UserID | null
+  creatorAddress: Address | null
+  chainIdHex: ChainIDHex | null
+  variant: LootboxVariant_Firestore | null
+  chainIdDecimal: ChainIDDecimal | null
+  chainName: string | null
+  symbol: string | null
+  transactionHash: string | null
+  blockNumber: string | null
+  baseTokenURI: string | null
+  creationNonce: LootboxCreatedNonce | null
 }
+
+// export interface Lootbox_Firestore {
+//   // Immutable
+//   id: LootboxID
+//   address: Address
+//   factory: Address
+//   creatorID: UserID
+//   creatorAddress: Address
+//   chainIdHex: ChainIDHex
+//   variant: LootboxVariant_Firestore
+//   chainIdDecimal: ChainIDDecimal
+//   chainName: string
+//   symbol: string
+//   transactionHash: string
+//   blockNumber: string
+//   stampImage: string
+//   baseTokenURI: string
+
+//   // Mutable
+//   logo: string
+//   name: string
+//   description: string
+//   nftBountyValue?: string
+//   joinCommunityUrl?: string
+//   status?: LootboxStatus_Firestore
+//   maxTickets: number
+//   backgroundImage: string
+//   themeColor: string
+//   creationNonce: LootboxCreatedNonce | null
+//   timestamps: LootboxTimestamps
+//   runningCompletedClaims: number
+//   members?: LootboxMemberRep[]
+//   // metadataDownloadUrl: string;
+//   // metadataV2: LootboxMetadataV2_Firestore;
+//   /** @deprecated */
+//   metadata?: LootboxMetadata_Firestore
+// }
 
 export type LootboxMemberRep = {
   userID: UserID
@@ -122,7 +154,7 @@ export type LootboxSnapshotTimestamps = {
 
 export interface LootboxTournamentSnapshot_Firestore {
   id: LootboxTournamentSnapshotID
-  address: Address
+  address: Address | null
   lootboxID: LootboxID
   creatorID: string
   lootboxCreatorID: UserID
