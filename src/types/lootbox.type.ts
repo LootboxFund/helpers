@@ -123,14 +123,7 @@ export interface EnqueueLootboxOnCreateCallableRequest {
   payload: {
     /** Used to find the correct lootbox */
     nonce: LootboxCreatedNonce
-    lootboxDescription: string
-    backgroundImage: string
-    logoImage: string
-    themeColor: string
-    nftBountyValue: string
-    joinCommunityUrl?: string
     symbol: string // todo move to contract event
-    tournamentID?: TournamentID
     lootboxID: LootboxID
   }
 }
