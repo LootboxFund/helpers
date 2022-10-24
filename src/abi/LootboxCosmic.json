@@ -140,6 +140,37 @@
       {
         "indexed": true,
         "internalType": "address",
+        "name": "changer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "lootbox",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "oldMaxTickets",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "newMaxTickets",
+        "type": "uint256"
+      }
+    ],
+    "name": "MaxTicketsChange",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
         "name": "redeemer",
         "type": "address"
       },

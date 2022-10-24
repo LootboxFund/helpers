@@ -14,7 +14,6 @@ import {
   ClaimID,
   ReferralID,
 } from './base.type'
-import { LootboxMetadata_Firestore } from './tokens.type'
 
 export enum LootboxVariant_Firestore {
   escrow = 'escrow',
@@ -130,6 +129,7 @@ export interface EnqueueLootboxOnCreateCallableRequest {
     joinCommunityUrl?: string
     symbol: string // todo move to contract event
     tournamentID?: TournamentID
+    lootboxID: LootboxID
   }
 }
 
