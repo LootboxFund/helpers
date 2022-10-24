@@ -1,4 +1,4 @@
-import { Address, ChainIDHex, Url } from './base.type'
+import { Address, ChainIDHex, LootboxID, Url } from './base.type'
 import { LootboxTicketMetadataV2_Firestore } from './tokens.type'
 
 export interface StampNewTicketProps {
@@ -8,6 +8,7 @@ export interface StampNewTicketProps {
   themeColor: string
   name: string
   ticketID: string | null
+  lootboxID: LootboxID
   lootboxAddress: Address
   chainIdHex: ChainIDHex
   metadata: LootboxTicketMetadataV2_Firestore
@@ -25,8 +26,9 @@ export interface StampNewLootboxProps {
   logoImage: string
   themeColor: string
   name: string
-  lootboxAddress: Address
-  chainIdHex: ChainIDHex
+  lootboxID: LootboxID
+  lootboxAddress?: Address
+  chainIdHex?: ChainIDHex
 }
 
 export interface StampNewLootboxResponse {
