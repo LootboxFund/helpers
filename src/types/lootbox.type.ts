@@ -31,6 +31,7 @@ export type LootboxTimestamps = {
   createdAt: number
   updatedAt: number
   deletedAt: number | null
+  deployedAt?: number | null
 }
 
 export interface Lootbox_Firestore {
@@ -48,11 +49,12 @@ export interface Lootbox_Firestore {
   timestamps: LootboxTimestamps
   stampImage: string
   members?: LootboxMemberRep[]
+  creatorID: UserID
+  isContractDeployed?: boolean
 
   // Web3 things
   address: Address | null
   factory: Address | null
-  creatorID: UserID | null
   creatorAddress: Address | null
   chainIdHex: ChainIDHex | null
   variant: LootboxVariant_Firestore | null
