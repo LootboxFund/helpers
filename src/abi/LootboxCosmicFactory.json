@@ -54,6 +54,12 @@
         "type": "string"
       },
       {
+        "indexed": false,
+        "internalType": "string",
+        "name": "lootboxID",
+        "type": "string"
+      },
+      {
         "indexed": true,
         "internalType": "string",
         "name": "_nonce",
@@ -219,6 +225,11 @@
         "internalType": "uint256",
         "name": "_maxTickets",
         "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "_lootboxID",
+        "type": "string"
       },
       {
         "internalType": "string",

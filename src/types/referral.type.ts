@@ -79,11 +79,12 @@ export interface Claim_Firestore {
   tournamentName: string
   originLootboxId?: LootboxID
   lootboxID?: LootboxID
-  lootboxAddress?: Address
+  lootboxAddress?: Address | null
   lootboxName?: string
   lootboxNFTBountyValue?: string
   lootboxMaxTickets?: number
   whitelistId: LootboxMintWhitelistID | null
+  whitelistedAddress: Address | null
   ticketWeb3ID: LootboxTicketID_Web3 | null
   ticketID: LootboxTicketID | null
   rewardFromClaim?: ClaimID
