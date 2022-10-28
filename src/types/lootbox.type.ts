@@ -14,6 +14,7 @@ import {
   ClaimID,
   ReferralID,
 } from './base.type'
+import { LootboxMetadata_Firestore } from './tokens.type'
 
 export enum LootboxVariant_Firestore {
   escrow = 'escrow',
@@ -65,6 +66,9 @@ export interface Lootbox_Firestore {
   blockNumber: string | null
   baseTokenURI: string | null
   creationNonce: LootboxCreatedNonce | null
+
+  /** @deprecated */
+  metadata?: LootboxMetadata_Firestore
 }
 
 // export interface Lootbox_Firestore {
