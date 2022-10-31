@@ -44,3 +44,9 @@ export type LootboxTournamentSnapshotID = string & {
 }
 export type LootboxTicketDigest = string & { readonly _: unique symbol } // Hashed encoded typed struct with nonce & chains data
 // export type LootboxTicketNonce = string & { readonly _: unique symbol } // Unique nonce for each ticket
+export declare type DepositID = string & {
+  readonly _: unique symbol
+}
+export declare type DepositID_Web3 = number & {
+  readonly _: unique symbol
+}

@@ -13,6 +13,8 @@ import {
   LootboxTicketDigest,
   ClaimID,
   ReferralID,
+  DepositID,
+  DepositID_Web3,
 } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
@@ -132,12 +134,40 @@ export interface EnqueueLootboxOnCreateCallableRequest {
   }
 }
 
+export interface Deposit_Firestore {
+  id: DepositID
+  createdAt: number
+  updatedAt: number
+  depositerAddress: Address
+  depositerID: UserID
+  lootboxID: LootboxID
+  lootboxAddress: Address
+  erc20Amount: string
+  nativeAmount: string
+  transactionHash: string
+  blockNumber: number
+  chainIDHex: ChainIDHex
+  depositID: DepositID_Web3
+  erc20Address: Address
+  maxTicketSnapshot: number
+}
+
 export interface EnqueueLootboxOnMintCallableRequest {
   fromBlock: number
   lootboxAddress: Address
   nonce: LootboxMintSignatureNonce
   digest: LootboxTicketDigest
   chainIDHex: ChainIDHex
+}
+
+export interface EnqueueLootboxOnDepositCallableRequest {
+  fromBlock: number
+  lootboxAddress: Address
+  chainIDHex: ChainIDHex
+  amount: string // String big number i.e. "1000000000000000000"
+  erc20Address: Address
+  afterDepositID: DepositID_Web3
+  depositerAddress: Address
 }
 
 export enum LootboxTournamentStatus_Firestore {
@@ -149,6 +179,7 @@ export type LootboxSnapshotTimestamps = {
   createdAt: number
   updatedAt: number
   deletedAt: number | null
+  depositEmailSentAt?: number | null
 }
 
 export interface LootboxTournamentSnapshot_Firestore {

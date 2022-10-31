@@ -23,4 +23,5 @@ export enum Collection {
   'LootboxTournamentSnapshot' = 'lootbox-tournament-snapshot',
   'MintWhiteList' = 'mint-whitelist',
   'LootboxTicket' = 'lootbox-ticket',
+  'Deposit' = 'deposit',
 }
