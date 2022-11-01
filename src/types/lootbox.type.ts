@@ -216,3 +216,9 @@ export type MintWhitelistSignature_Firestore = {
   claimID: ClaimID
   referralID: ReferralID
 }
+
+export interface EnqueueLootboxDepositEmailRequest {
+  lootboxID: LootboxID
+  tournamentID: TournamentID
+  chainIDHex: ChainIDHex
+}
