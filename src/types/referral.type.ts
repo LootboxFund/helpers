@@ -48,7 +48,7 @@ export enum ReferralType_Firestore {
 export enum ClaimStatus_Firestore {
   pending = 'pending',
   pending_verification = 'pending_verification',
-  verification_sent = 'verification_sent',
+  expired = 'expired',
   complete = 'complete',
 }
 
