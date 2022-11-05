@@ -1,4 +1,5 @@
 import { ActivationID, ActivationStatus, MeasurementPartnerType } from './advertiser.type'
+import { AirdropQuestionFieldID, LootboxID } from './base.type'
 import {
   AdEventID,
   AdEventNonce,
@@ -6,6 +7,7 @@ import {
   AdSetID,
   AdvertiserID,
   AffiliateID,
+  AirdropBatchID,
   CampaignID,
   ClaimID,
   FlightID,
@@ -35,6 +37,7 @@ export interface AdEvent_Firestore {
   extraData?: Record<string, any>
   affiliateAttribution?: AdEventAffiliateAttribution
   nonce?: AdEventNonce
+  airdropBatchID?: AirdropBatchID
 }
 
 export type EventMetadata = {
@@ -56,6 +59,8 @@ export enum AdEventAction {
   TimerElapsed = 'TimerElapsed',
   VideoTimestamp = 'VideoTimestamp',
   Activation = 'Activation',
+  InitQuest = 'InitQuest',
+  CompleteQuest = 'CompleteQuest',
 }
 
 export interface AdFlight_Firestore {
@@ -125,4 +130,44 @@ export interface PixelTrackingParams {
   eventAction?: AdEventAction | null | undefined
   nonce?: AdEventNonce | null | undefined
   timeElapsed?: number | null | undefined
+}
+
+export interface AirdropBase {
+  offerID: OfferID
+  title: string
+  oneLiner: string
+  value: string
+  instructionsLink: string
+  tournamentID?: TournamentID
+  organizerID?: AffiliateID
+  advertiserID: AdvertiserID
+  questionFields: AirdropQuestionField[]
+}
+
+export interface AirdropQuestionField {
+  id: AirdropQuestionFieldID
+  airdropBatchID?: AirdropBatchID
+  offerID: OfferID
+  question: string
+  answer?: string
+  type: AirdropQuestionFieldType
+}
+export enum AirdropQuestionFieldType {
+  Text = 'Text',
+  Number = 'Number',
+  Phone = 'Phone',
+  Email = 'Email',
+  Address = 'Address',
+  Date = 'Date',
+  Screenshot = 'Screenshot',
+}
+
+export interface AirdropBatch extends AirdropBase {
+  lootboxID: LootboxID
+  questionAnswers: AirdropQuestionAnswerField[]
+}
+
+export interface AirdropQuestionAnswerField extends AirdropQuestionField {
+  userID: UserID
+  timestamp: number
 }

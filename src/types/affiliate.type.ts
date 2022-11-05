@@ -1,4 +1,4 @@
-import { MMPActivationAlias } from './ad.type'
+import { AirdropBase, MMPActivationAlias } from './ad.type'
 import { ActivationID, AffiliateBaseLink, MeasurementPartnerType, OfferStatus } from './advertiser.type'
 import {
   AdEventID,
@@ -170,10 +170,21 @@ export interface Offer_Firestore {
   startDate: number
   endDate: number
   status: OfferStatus
+  strategy?: OfferStrategy
   affiliateBaseLink: AffiliateBaseLink
   mmp: MeasurementPartnerType
   // targetingTags: AdTargetTag[];
   adSets: AdSetID[]
+  airdropMetadata?: Offer_AirdropMetadata
+}
+
+export interface Offer_AirdropMetadata extends AirdropBase {
+  excludedOffers: OfferID[]
+}
+
+export enum OfferStrategy {
+  Airdrop = 'Airdrop',
+  None = 'None',
 }
 
 export interface RateQuote_Firestore {
