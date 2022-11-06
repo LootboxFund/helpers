@@ -1,3 +1,4 @@
+import { AirdropBase, AirdropQuestionAnswerField } from './ad.type'
 import {
   Address,
   ChainIDDecimal,
@@ -69,8 +70,17 @@ export interface Lootbox_Firestore {
   baseTokenURI: string | null
   creationNonce: LootboxCreatedNonce | null
 
+  // Airdrop only
+  airdropMetadata?: LootboxAirdropMetadata
+
   /** @deprecated */
   metadata?: LootboxMetadata_Firestore
+}
+
+export interface LootboxAirdropMetadata extends AirdropBase {
+  lootboxID: LootboxID
+  lootboxAddress: Address
+  batchId: string
 }
 
 // export interface Lootbox_Firestore {

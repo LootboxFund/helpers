@@ -179,6 +179,7 @@ export interface Offer_Firestore {
 }
 
 export interface Offer_AirdropMetadata extends AirdropBase {
+  batchCount: number
   excludedOffers: OfferID[]
 }
 
@@ -237,6 +238,7 @@ export interface Tournament_Firestore {
     [key: string]: {
       id: OfferID
       status: OfferInTournamentStatus
+      strategy?: OfferStrategy
       rateQuotes: RateQuoteID[]
       adSets: {
         [key: string]: AdSetInTournamentStatus

@@ -7,7 +7,6 @@ import {
   AdSetID,
   AdvertiserID,
   AffiliateID,
-  AirdropBatchID,
   CampaignID,
   ClaimID,
   FlightID,
@@ -37,7 +36,7 @@ export interface AdEvent_Firestore {
   extraData?: Record<string, any>
   affiliateAttribution?: AdEventAffiliateAttribution
   nonce?: AdEventNonce
-  airdropBatchID?: AirdropBatchID
+  airdropLootboxID?: LootboxID
 }
 
 export type EventMetadata = {
@@ -91,6 +90,7 @@ export enum Placement {
   AfterPayout = 'AfterPayout',
   DailySpin = 'DailySpin',
   TicketCarousel = 'TicketCarousel',
+  Airdrop = 'Airdrop',
 }
 
 export interface Activation_Firestore {
@@ -146,7 +146,7 @@ export interface AirdropBase {
 
 export interface AirdropQuestionField {
   id: AirdropQuestionFieldID
-  airdropBatchID?: AirdropBatchID
+  airdropLootboxID?: LootboxID
   offerID: OfferID
   question: string
   answer?: string
@@ -160,11 +160,6 @@ export enum AirdropQuestionFieldType {
   Address = 'Address',
   Date = 'Date',
   Screenshot = 'Screenshot',
-}
-
-export interface AirdropBatch extends AirdropBase {
-  lootboxID: LootboxID
-  questionAnswers: AirdropQuestionAnswerField[]
 }
 
 export interface AirdropQuestionAnswerField extends AirdropQuestionField {
