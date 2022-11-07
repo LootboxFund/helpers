@@ -1,3 +1,5 @@
+import { AirdropQuestionAnswerField } from './ad.type'
+import { OfferID } from './base.type'
 import {
   Address,
   AffiliateID,
@@ -95,6 +97,9 @@ export interface Claim_Firestore {
   type: ClaimType_Firestore
   timestamps: ClaimTimestamps_Firestore
 
+  // used for airdrop only
+  airdropMetadata?: ClaimAirdropMetadata
+
   /** @deprecated use lootbox */
   originPartyBasketId?: PartyBasketID
   /** @deprecated use lootbox */
@@ -105,4 +110,22 @@ export interface Claim_Firestore {
   chosenPartyBasketName?: string
   /** @deprecated use lootbox */
   chosenPartyBasketNFTBountyValue?: string
+}
+
+export interface ClaimAirdropMetadata {
+  lootboxID: LootboxID
+  lootboxAddress: Address
+  offerID: OfferID
+  batchAlias: string
+  claimStatus: AirdropUserClaimStatus
+  questionAnswers: AirdropQuestionAnswerField[]
+}
+
+export enum AirdropUserClaimStatus {
+  Revoked = 'Revoked', // users ticket was revoked and cannot be redeemed for the airdrop prize
+  Completed = 'Completed', // user has successfully claimed their airdrop rewards
+  Submitted = 'Submitted', // user has submitted the form
+  InProgress = 'InProgress', // user is on the redeem page and has started the instructions (questing)
+  Pending = 'Pending', // user has clicked to redeem, arriving at the redeem page
+  Awaiting = 'Awaiting', // sent the ticket to the user, but they haven't attempted to redeem yet
 }
