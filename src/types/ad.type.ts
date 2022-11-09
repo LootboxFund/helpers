@@ -1,4 +1,5 @@
 import { ActivationID, ActivationStatus, MeasurementPartnerType } from './advertiser.type'
+import { QuestionAnswerID, QuestionAnswerBatchID, LootboxID } from './base.type'
 import {
   AdEventID,
   AdEventNonce,
@@ -125,4 +126,47 @@ export interface PixelTrackingParams {
   eventAction?: AdEventAction | null | undefined
   nonce?: AdEventNonce | null | undefined
   timeElapsed?: number | null | undefined
+}
+
+export interface AirdropBase {
+  offerID: OfferID
+  title: string
+  oneLiner?: string
+  value: string
+  instructionsLink?: string
+  tournamentID?: TournamentID
+  organizerID?: AffiliateID
+  advertiserID?: AdvertiserID
+  questions: QuestionAnswerID[]
+}
+
+export interface QuestionAnswer_Firestore {
+  id: QuestionAnswerID
+  batch: QuestionAnswerBatchID // index
+  airdropMetadata?: {
+    offerID: OfferID
+    lootboxID?: LootboxID
+    tournamentID?: TournamentID
+    organizerID?: AffiliateID
+    advertiserID?: AdvertiserID
+  }
+  status: QuestionAnswerStatus
+  question: string
+  answer?: string
+  userID?: UserID
+  type: QuestionFieldType
+  timestamp: number
+}
+export enum QuestionAnswerStatus {
+  Active = 'Active',
+  Inactive = 'Inactive',
+}
+export enum QuestionFieldType {
+  Text = 'Text',
+  Number = 'Number',
+  Phone = 'Phone',
+  Email = 'Email',
+  Address = 'Address',
+  Date = 'Date',
+  Screenshot = 'Screenshot',
 }

@@ -1,3 +1,4 @@
+import { AirdropBase } from './ad.type'
 import {
   Address,
   ChainIDDecimal,
