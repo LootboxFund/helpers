@@ -38,6 +38,11 @@ export type LootboxTimestamps = {
   deployedAt?: number | null
 }
 
+export enum LootboxType {
+  Compete = 'Compete',
+  Airdrop = 'Airdrop',
+}
+
 export interface Lootbox_Firestore {
   id: LootboxID
   logo: string
@@ -55,6 +60,7 @@ export interface Lootbox_Firestore {
   members?: LootboxMemberRep[]
   creatorID: UserID
   isContractDeployed?: boolean
+  type?: LootboxType
 
   // Web3 things
   address: Address | null
@@ -72,6 +78,12 @@ export interface Lootbox_Firestore {
 
   /** @deprecated */
   metadata?: LootboxMetadata_Firestore
+}
+
+export interface LootboxAirdropMetadata extends AirdropBase {
+  lootboxID: LootboxID
+  lootboxAddress?: Address
+  batch: number
 }
 
 // export interface Lootbox_Firestore {
@@ -193,6 +205,7 @@ export interface LootboxTournamentSnapshot_Firestore {
   description: string
   name: string
   stampImage: string
+  type?: LootboxType
   timestamps: LootboxSnapshotTimestamps
   status: LootboxTournamentStatus_Firestore
   impressionPriority: number // higher priority will be shown first starts at 0
