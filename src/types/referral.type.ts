@@ -48,9 +48,13 @@ export enum ReferralType_Firestore {
 }
 
 export enum ClaimStatus_Firestore {
+  /** Claim started */
   pending = 'pending',
-  pending_verification = 'pending_verification',
-  verification_sent = 'verification_sent',
+  /** When anon user "completes" but has not verified their phone number */
+  unverified = 'unverified',
+  /** When anon user "completes" a claim but in that time the lootbox became sold out for ex this is considered an end state as well */
+  expired = 'expired',
+  /** Claim is end state and redeemable etc */
   complete = 'complete',
 }
 
