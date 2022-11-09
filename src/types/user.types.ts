@@ -1,4 +1,4 @@
-import { Address, OfferID, UserID, WalletID } from './base.type'
+import { Address, UserID, WalletID } from './base.type'
 
 export interface Wallet_Firestore {
   id: WalletID
@@ -19,7 +19,6 @@ export interface User_Firestore {
   createdAt: number
   updatedAt: number
   deletedAt?: number
-  airdropsReceived?: OfferID[]
 }
 
 export type UserSocials_Firestore = {
