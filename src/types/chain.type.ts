@@ -43,7 +43,10 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     chainName: 'Binance Smart Chain',
     displayName: 'BSC Mainnet',
     nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
-    rpcUrls: ['https://bsc-dataseed.binance.org/'],
+    rpcUrls: [
+      'https://dark-long-mansion.bsc.quiknode.pro/40d2e0bda10bd57367e53cd47141f881d7e1ad2c/',
+      'https://bsc-dataseed.binance.org/',
+    ],
     blockExplorerUrls: ['https://bscscan.com/'],
     currentNetworkLogo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',
     slug: ChainSlugs.BSC_MAINNET,
