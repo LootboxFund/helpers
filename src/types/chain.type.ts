@@ -85,7 +85,10 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     chainName: 'Polygon (Mainnet)',
     displayName: 'Polygon Mainnet',
     nativeCurrency: { name: 'Matic', symbol: 'MATIC', decimals: 18 },
-    rpcUrls: ['https://polygon-rpc.com/'],
+    rpcUrls: [
+      'https://cosmopolitan-bold-mountain.matic.quiknode.pro/dab8351df0b9cb9923423e04ebb4f3268bda5871/',
+      'https://polygon-rpc.com/',
+    ],
     blockExplorerUrls: ['https://polygonscan.com/'],
     currentNetworkLogo:
       'https://firebasestorage.googleapis.com/v0/b/guildfx-exchange.appspot.com/o/assets%2Ftokens%2FMATIC_COLORED.png?alt=media',
