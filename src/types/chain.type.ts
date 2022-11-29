@@ -19,6 +19,7 @@ export type ChainInfo = {
     decimals: number
   }
   rpcUrls: Url[]
+  privateRPCUrls: Url[]
   blockExplorerUrls: Url[]
   currentNetworkLogo: string
   slug: ChainSlugs
@@ -31,7 +32,8 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     chainName: 'Ethereum Mainnet',
     displayName: 'ETH Mainnet',
     nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
-    rpcUrls: ['https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'],
+    rpcUrls: ['https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'], // TODO: move this to private RPC?
+    privateRPCUrls: [],
     blockExplorerUrls: ['https://etherscan.io'],
     currentNetworkLogo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
     slug: ChainSlugs.ETH_MAINNET,
@@ -43,10 +45,8 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     chainName: 'Binance Smart Chain',
     displayName: 'BSC Mainnet',
     nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
-    rpcUrls: [
-      'https://dark-long-mansion.bsc.quiknode.pro/40d2e0bda10bd57367e53cd47141f881d7e1ad2c/',
-      'https://bsc-dataseed.binance.org/',
-    ],
+    rpcUrls: ['https://bsc-dataseed.binance.org/'],
+    privateRPCUrls: ['https://dark-long-mansion.bsc.quiknode.pro/40d2e0bda10bd57367e53cd47141f881d7e1ad2c/'],
     blockExplorerUrls: ['https://bscscan.com/'],
     currentNetworkLogo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',
     slug: ChainSlugs.BSC_MAINNET,
@@ -60,6 +60,7 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     displayName: 'BSC Testnet',
     nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
     rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/'],
+    privateRPCUrls: [],
     blockExplorerUrls: ['https://testnet.bscscan.com/'],
     currentNetworkLogo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',
     priceFeedUSD: '0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526' as ContractAddress,
@@ -72,7 +73,7 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     displayName: 'Mumbai',
     nativeCurrency: { name: 'Matic', symbol: 'MATIC', decimals: 18 },
     rpcUrls: ['https://rpc-mumbai.maticvigil.com'],
-    // rpcUrls: ['https://rpc-mumbai.matic.today'],
+    privateRPCUrls: [],
     blockExplorerUrls: ['https://mumbai.polygonscan.com/'],
     currentNetworkLogo:
       'https://firebasestorage.googleapis.com/v0/b/guildfx-exchange.appspot.com/o/assets%2Ftokens%2FMATIC_COLORED.png?alt=media',
@@ -85,10 +86,8 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     chainName: 'Polygon (Mainnet)',
     displayName: 'Polygon Mainnet',
     nativeCurrency: { name: 'Matic', symbol: 'MATIC', decimals: 18 },
-    rpcUrls: [
-      'https://cosmopolitan-bold-mountain.matic.quiknode.pro/dab8351df0b9cb9923423e04ebb4f3268bda5871/',
-      'https://polygon-rpc.com/',
-    ],
+    rpcUrls: ['https://polygon-rpc.com/'],
+    privateRPCUrls: ['https://cosmopolitan-bold-mountain.matic.quiknode.pro/dab8351df0b9cb9923423e04ebb4f3268bda5871/'],
     blockExplorerUrls: ['https://polygonscan.com/'],
     currentNetworkLogo:
       'https://firebasestorage.googleapis.com/v0/b/guildfx-exchange.appspot.com/o/assets%2Ftokens%2FMATIC_COLORED.png?alt=media',
@@ -102,6 +101,7 @@ export const BLOCKCHAINS: Record<ChainSlugs, ChainInfo> = {
     displayName: 'Unknown Network',
     nativeCurrency: { name: '', symbol: '', decimals: 18 },
     rpcUrls: [],
+    privateRPCUrls: [],
     blockExplorerUrls: [],
     currentNetworkLogo: '',
     priceFeedUSD: '0x0' as ContractAddress,
