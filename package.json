@@ -1,6 +1,6 @@
 {
   "name": "@wormgraph/helpers",
-  "version": "0.7.4-demo-9",
+  "version": "0.7.4-demo-release",
   "main": "lib/index.js",
   "author": "0xterran",
   "license": "private",
