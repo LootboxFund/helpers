@@ -1,3 +1,4 @@
+import { OfferID, QuestionAnswerID } from './base.type'
 import {
   Address,
   AffiliateID,
@@ -54,6 +55,8 @@ export enum ClaimStatus_Firestore {
   expired = 'expired',
   /** Claim is end state and redeemable etc */
   complete = 'complete',
+  /** Claim has retrieved the reward */
+  rewarded = 'rewarded',
 }
 
 export type ClaimTimestamps_Firestore = {
@@ -69,6 +72,7 @@ export enum ClaimType_Firestore {
   referral = 'referral',
   reward = 'reward',
   one_time = 'one_time',
+  airdrop = 'airdrop',
 }
 
 export interface Claim_Firestore {
@@ -99,6 +103,8 @@ export interface Claim_Firestore {
   type: ClaimType_Firestore
   timestamps: ClaimTimestamps_Firestore
 
+  airdropMetadata?: ClaimAirdropMetadata
+
   /** @deprecated use lootbox */
   originPartyBasketId?: PartyBasketID
   /** @deprecated use lootbox */
@@ -109,4 +115,22 @@ export interface Claim_Firestore {
   chosenPartyBasketName?: string
   /** @deprecated use lootbox */
   chosenPartyBasketNFTBountyValue?: string
+}
+
+export interface ClaimAirdropMetadata {
+  lootboxID: LootboxID
+  lootboxAddress?: Address
+  offerID: OfferID
+  batchAlias: string
+  claimStatus: AirdropUserClaimStatus
+  answers: QuestionAnswerID[]
+}
+
+export enum AirdropUserClaimStatus {
+  Revoked = 'Revoked', // users ticket was revoked and cannot be redeemed for the airdrop prize
+  Completed = 'Completed', // user has successfully claimed their airdrop rewards
+  Submitted = 'Submitted', // user has submitted the form
+  InProgress = 'InProgress', // user is on the redeem page and has started the instructions (questing)
+  Pending = 'Pending', // user has clicked to redeem, arriving at the redeem page
+  Awaiting = 'Awaiting', // sent the ticket to the user, but they haven't attempted to redeem yet
 }

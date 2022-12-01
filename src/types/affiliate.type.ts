@@ -1,4 +1,4 @@
-import { MMPActivationAlias } from './ad.type'
+import { AirdropBase, MMPActivationAlias } from './ad.type'
 import { ActivationID, AffiliateBaseLink, MeasurementPartnerType, OfferStatus } from './advertiser.type'
 import {
   AdEventID,
@@ -167,6 +167,7 @@ export interface Offer_Firestore {
   spentBudget: number
   maxBudget: number
   // currency: Currency;
+  strategy?: OfferStrategy
   startDate: number
   endDate: number
   status: OfferStatus
@@ -174,6 +175,18 @@ export interface Offer_Firestore {
   mmp: MeasurementPartnerType
   // targetingTags: AdTargetTag[];
   adSets: AdSetID[]
+  airdropMetadata?: Offer_AirdropMetadata
+}
+
+export interface Offer_AirdropMetadata extends AirdropBase {
+  batchCount: number
+  excludedOffers: OfferID[]
+  advertiserID: AdvertiserID
+}
+
+export enum OfferStrategy {
+  Airdrop = 'Airdrop',
+  None = 'None',
 }
 
 export interface RateQuote_Firestore {
@@ -226,6 +239,7 @@ export interface Tournament_Firestore {
     [key: string]: {
       id: OfferID
       status: OfferInTournamentStatus
+      strategy?: OfferStrategy
       rateQuotes: RateQuoteID[]
       adSets: {
         [key: string]: AdSetInTournamentStatus
