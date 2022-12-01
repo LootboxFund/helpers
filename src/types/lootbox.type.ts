@@ -76,6 +76,8 @@ export interface Lootbox_Firestore {
   baseTokenURI: string | null
   creationNonce: LootboxCreatedNonce | null
 
+  airdropMetadata?: LootboxAirdropMetadata
+
   /** @deprecated */
   metadata?: LootboxMetadata_Firestore
 }

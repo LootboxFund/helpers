@@ -87,6 +87,7 @@ export enum Placement {
   AfterPayout = 'AfterPayout',
   DailySpin = 'DailySpin',
   TicketCarousel = 'TicketCarousel',
+  Airdrop = 'Airdrop',
 }
 
 export interface Activation_Firestore {

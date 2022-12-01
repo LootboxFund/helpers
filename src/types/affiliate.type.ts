@@ -167,6 +167,7 @@ export interface Offer_Firestore {
   spentBudget: number
   maxBudget: number
   // currency: Currency;
+  strategy?: OfferStrategy
   startDate: number
   endDate: number
   status: OfferStatus
@@ -238,6 +239,7 @@ export interface Tournament_Firestore {
     [key: string]: {
       id: OfferID
       status: OfferInTournamentStatus
+      strategy?: OfferStrategy
       rateQuotes: RateQuoteID[]
       adSets: {
         [key: string]: AdSetInTournamentStatus

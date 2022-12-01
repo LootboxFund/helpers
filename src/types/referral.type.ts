@@ -55,6 +55,8 @@ export enum ClaimStatus_Firestore {
   expired = 'expired',
   /** Claim is end state and redeemable etc */
   complete = 'complete',
+  /** Claim has retrieved the reward */
+  rewarded = 'rewarded',
 }
 
 export type ClaimTimestamps_Firestore = {
@@ -70,6 +72,7 @@ export enum ClaimType_Firestore {
   referral = 'referral',
   reward = 'reward',
   one_time = 'one_time',
+  airdrop = 'airdrop',
 }
 
 export interface Claim_Firestore {
@@ -100,6 +103,8 @@ export interface Claim_Firestore {
   type: ClaimType_Firestore
   timestamps: ClaimTimestamps_Firestore
 
+  airdropMetadata?: ClaimAirdropMetadata
+
   /** @deprecated use lootbox */
   originPartyBasketId?: PartyBasketID
   /** @deprecated use lootbox */
@@ -114,7 +119,7 @@ export interface Claim_Firestore {
 
 export interface ClaimAirdropMetadata {
   lootboxID: LootboxID
-  lootboxAddress: Address
+  lootboxAddress?: Address
   offerID: OfferID
   batchAlias: string
   claimStatus: AirdropUserClaimStatus
