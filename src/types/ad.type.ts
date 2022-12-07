@@ -144,6 +144,9 @@ export interface AirdropBase {
 export interface QuestionAnswer_Firestore {
   id: QuestionAnswerID
   batch: QuestionAnswerBatchID // index
+  order?: Number
+  // fromEntityType?: EntityType
+  // fromEntityID?: EntityID
   airdropMetadata?: {
     offerID: OfferID
     lootboxID?: LootboxID
@@ -158,6 +161,12 @@ export interface QuestionAnswer_Firestore {
   type: QuestionFieldType
   timestamp: number
 }
+// export enum EntityType {
+//   Offer = 'Offer',
+//   Lootbox = 'Lootbox',
+//   Event = 'Event',
+//   User = 'User',
+// }
 export enum QuestionAnswerStatus {
   Active = 'Active',
   Inactive = 'Inactive',
@@ -169,5 +178,12 @@ export enum QuestionFieldType {
   Email = 'Email',
   Address = 'Address',
   Date = 'Date',
+  Time = 'Time',
+  DateTime = 'DateTime',
+  File = 'File',
+  Range = 'Range',
   Screenshot = 'Screenshot',
+  Link = 'Link',
+  SingleSelect = 'SingleSelect',
+  MultiSelect = 'MultiSelect',
 }
