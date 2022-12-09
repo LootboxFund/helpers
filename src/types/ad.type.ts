@@ -135,16 +135,19 @@ export interface AirdropBase {
   oneLiner?: string
   value: string
   instructionsLink?: string
+  instructionsCallToAction?: string
+  callToActionLink?: string
   tournamentID?: TournamentID
   organizerID?: AffiliateID
   advertiserID?: AdvertiserID
+  advertiserName?: string
   questions: QuestionAnswerID[]
 }
 
 export interface QuestionAnswer_Firestore {
   id: QuestionAnswerID
   batch: QuestionAnswerBatchID // index
-  order?: Number
+  order?: number
   // fromEntityType?: EntityType
   // fromEntityID?: EntityID
   airdropMetadata?: {
