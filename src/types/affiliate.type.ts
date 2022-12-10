@@ -6,6 +6,7 @@ import {
   AdvertiserID,
   AffiliateID,
   FlightID,
+  LootboxID,
   MemoID,
   OfferID,
   RateQuoteID,
@@ -182,6 +183,8 @@ export interface Offer_AirdropMetadata extends AirdropBase {
   batchCount: number
   excludedOffers: OfferID[]
   advertiserID: AdvertiserID
+  lootboxTemplateID: LootboxID
+  lootboxTemplateStamp: string
 }
 
 export enum OfferStrategy {
