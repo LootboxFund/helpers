@@ -55,8 +55,15 @@ export enum ClaimStatus_Firestore {
   expired = 'expired',
   /** Claim is end state and redeemable etc */
   complete = 'complete',
-  /** Claim has retrieved the reward */
-  rewarded = 'rewarded',
+}
+
+export enum ClaimRedemptionStatus {
+  Revoked = 'Revoked', // users ticket was revoked and cannot be redeemed for the airdrop prize
+  Rewarded = 'Rewarded', // user has successfully claimed their airdrop rewards
+  Answered = 'Answered', // user has submitted the form
+  InProgress = 'InProgress', // user is on the redeem page and has started the instructions (questing)
+  Started = 'Started', // user has clicked to redeem, arriving at the redeem page
+  Awaiting = 'Awaiting', // sent the ticket to the user, but they haven't attempted to redeem yet
 }
 
 export type ClaimTimestamps_Firestore = {
@@ -100,6 +107,7 @@ export interface Claim_Firestore {
   isPostCosmic?: boolean
   claimerUserId?: UserID
   status: ClaimStatus_Firestore
+  redemptionStatus?: ClaimRedemptionStatus
   type: ClaimType_Firestore
   timestamps: ClaimTimestamps_Firestore
 
@@ -122,15 +130,5 @@ export interface ClaimAirdropMetadata {
   lootboxAddress?: Address
   offerID: OfferID
   batchAlias: string
-  claimStatus: AirdropUserClaimStatus
   answers: QuestionAnswerID[]
-}
-
-export enum AirdropUserClaimStatus {
-  Revoked = 'Revoked', // users ticket was revoked and cannot be redeemed for the airdrop prize
-  Completed = 'Completed', // user has successfully claimed their airdrop rewards
-  Submitted = 'Submitted', // user has submitted the form
-  InProgress = 'InProgress', // user is on the redeem page and has started the instructions (questing)
-  Pending = 'Pending', // user has clicked to redeem, arriving at the redeem page
-  Awaiting = 'Awaiting', // sent the ticket to the user, but they haven't attempted to redeem yet
 }
