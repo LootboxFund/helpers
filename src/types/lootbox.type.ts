@@ -54,6 +54,7 @@ export interface Lootbox_Firestore {
   maxTickets: number
   backgroundImage: string
   themeColor: string
+  tournamentID?: TournamentID
   runningCompletedClaims: number
   timestamps: LootboxTimestamps
   stampImage: string

@@ -238,6 +238,7 @@ export interface Tournament_Firestore {
   advertisers?: AdvertiserID[]
   isPostCosmic?: boolean // To be removed soon
   runningCompletedClaims?: number
+  playbookUrl?: string
   privacyScope?: TournamentPrivacyScope[]
   offers?: {
     [key: string]: {
