@@ -238,6 +238,7 @@ export interface Tournament_Firestore {
   advertisers?: AdvertiserID[]
   isPostCosmic?: boolean // To be removed soon
   runningCompletedClaims?: number
+  privacyScope?: TournamentPrivacyScope[]
   offers?: {
     [key: string]: {
       id: OfferID
@@ -249,6 +250,11 @@ export interface Tournament_Firestore {
       }
     }
   }
+}
+
+export enum TournamentPrivacyScope {
+  MarketingEmails = 'MarketingEmails',
+  DataSharing = 'DataSharing',
 }
 
 export enum AdSetInTournamentStatus {
