@@ -1,5 +1,5 @@
 import { ActivationID, ActivationStatus, MeasurementPartnerType } from './advertiser.type'
-import { QuestionAnswerID, QuestionAnswerBatchID, LootboxID } from './base.type'
+import { QuestionAnswerID, QuestionAnswerBatchID, LootboxID, ReferralID } from './base.type'
 import {
   AdEventID,
   AdEventNonce,
@@ -154,7 +154,11 @@ export interface QuestionAnswer_Firestore {
     tournamentID?: TournamentID
     organizerID?: AffiliateID
     advertiserID?: AdvertiserID
+    adSetID?: AdSetID
+    referralID?: ReferralID
+    claimID?: ClaimID
   }
+  isOriginal?: boolean
   status: QuestionAnswerStatus
   question: string
   answer?: string
