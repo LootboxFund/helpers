@@ -148,9 +148,7 @@ export interface QuestionAnswer_Firestore {
   id: QuestionAnswerID
   batch: QuestionAnswerBatchID // index
   order?: number
-  // fromEntityType?: EntityType
-  // fromEntityID?: EntityID
-  airdropMetadata?: {
+  metadata?: {
     offerID: OfferID
     lootboxID?: LootboxID
     tournamentID?: TournamentID
@@ -162,6 +160,8 @@ export interface QuestionAnswer_Firestore {
   answer?: string
   userID?: UserID
   type: QuestionFieldType
+  mandatory?: boolean
+  options?: string
   timestamp: number
 }
 // export enum EntityType {
@@ -189,4 +189,5 @@ export enum QuestionFieldType {
   Link = 'Link',
   SingleSelect = 'SingleSelect',
   MultiSelect = 'MultiSelect',
+  Checkbox = 'Checkbox',
 }
