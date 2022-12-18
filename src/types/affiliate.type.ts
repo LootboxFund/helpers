@@ -9,6 +9,7 @@ import {
   LootboxID,
   MemoID,
   OfferID,
+  QuestionAnswerID,
   RateQuoteID,
   StreamID,
   TournamentID,
@@ -177,6 +178,7 @@ export interface Offer_Firestore {
   // targetingTags: AdTargetTag[];
   adSets: AdSetID[]
   airdropMetadata?: Offer_AirdropMetadata
+  afterTicketClaimMetadata?: Offer_AfterTicketClaimMetadata
 }
 
 export interface Offer_AirdropMetadata extends AirdropBase {
@@ -185,6 +187,10 @@ export interface Offer_AirdropMetadata extends AirdropBase {
   advertiserID: AdvertiserID
   lootboxTemplateID: LootboxID
   lootboxTemplateStamp: string
+}
+
+export interface Offer_AfterTicketClaimMetadata {
+  questions: QuestionAnswerID[]
 }
 
 export enum OfferStrategy {
