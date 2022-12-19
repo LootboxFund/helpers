@@ -106,7 +106,7 @@ export interface TradReward_Firestore {
   status: LootboxTradRewardStatus
   redeemedBy: UserID
   redeemedDate: number
-  depositedBY: UserID
+  depositedBy: UserID
   depositedDate: number
   tournamentID?: TournamentID
   offerID?: OfferID
