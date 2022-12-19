@@ -16,6 +16,8 @@ import {
   ReferralID,
   DepositID,
   DepositID_Web3,
+  LootboxTradRewardID,
+  OfferID,
 } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
 
@@ -77,7 +79,9 @@ export interface Lootbox_Firestore {
   baseTokenURI: string | null
   creationNonce: LootboxCreatedNonce | null
 
+  // metadata
   airdropMetadata?: LootboxAirdropMetadata
+  tradRewardsMetadata?: TradReward_Firestore[] // subcollection
 
   /** @deprecated */
   metadata?: LootboxMetadata_Firestore
@@ -87,6 +91,33 @@ export interface LootboxAirdropMetadata extends AirdropBase {
   lootboxID: LootboxID
   lootboxAddress?: Address
   batch: number
+}
+
+/**
+ * TradReward is deposited into a Lootbox either as a
+ * - one time use reward (isRootReward=false, originRootReward=null)
+ * - reuseable root reward (isRootReward=true) or,
+ * - recipiet of root reward (isRootReward=false, originRootReward=ID)
+ */
+export interface TradReward_Firestore {
+  id: LootboxTradRewardID
+  rewardBio: string
+  lootboxID: LootboxID
+  status: LootboxTradRewardStatus
+  redeemedBy: UserID
+  redeemedDate: number
+  depositedBY: UserID
+  depositedDate: number
+  tournamentID?: TournamentID
+  offerID?: OfferID
+  originRootReward?: LootboxTradRewardID
+  isRootReward?: boolean
+}
+
+enum LootboxTradRewardStatus {
+  available = 'available',
+  redeemed = 'redeemed',
+  revoked = 'revoked',
 }
 
 // export interface Lootbox_Firestore {

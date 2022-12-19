@@ -33,6 +33,7 @@ export type AdvertiserID = string & { readonly brand: unique symbol }
 export type AffiliateID = string & { readonly _: unique symbol }
 export type OfferID = string & { readonly _: unique symbol }
 export type MemoID = string & { readonly _: unique symbol }
+export type LootboxTradRewardID = string & { readonly _: unique symbol }
 export type RateQuoteID = string & {
   readonly _: unique symbol
 }
