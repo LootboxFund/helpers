@@ -25,5 +25,5 @@ export enum Collection {
   'LootboxTicket' = 'lootbox-ticket',
   'Deposit' = 'deposit',
   'QuestionAnswer' = 'question-answer',
-  'TradReward' = 'trad-reward',
+  'VoucherReward' = 'voucher-reward',
 }
