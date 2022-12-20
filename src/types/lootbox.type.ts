@@ -1,6 +1,5 @@
 import { AirdropBase } from './ad.type'
 import {
-  Address,
   ChainIDDecimal,
   ChainIDHex,
   LootboxCreatedNonce,
@@ -16,8 +15,11 @@ import {
   ReferralID,
   DepositID,
   DepositID_Web3,
+  VoucherRewardID,
+  OfferID,
 } from './base.type'
 import { LootboxMetadata_Firestore } from './tokens.type'
+import { AdvertiserID, Address } from './base.type'
 
 export enum LootboxVariant_Firestore {
   escrow = 'escrow',
@@ -77,7 +79,9 @@ export interface Lootbox_Firestore {
   baseTokenURI: string | null
   creationNonce: LootboxCreatedNonce | null
 
+  // metadata
   airdropMetadata?: LootboxAirdropMetadata
+  voucherRewardsMetadata?: VoucherReward_Firestore[] // subcollection
 
   /** @deprecated */
   metadata?: LootboxMetadata_Firestore
@@ -87,6 +91,50 @@ export interface LootboxAirdropMetadata extends AirdropBase {
   lootboxID: LootboxID
   lootboxAddress?: Address
   batch: number
+}
+
+/**
+ * TradReward is deposited into a Lootbox either as a
+ * - one time use reward (isOriginVoucher=false, originVoucherRewardID=null)
+ * - reuseable root reward (isOriginVoucher=true) or,
+ * - recipiet of root reward (isOriginVoucher=false, originVoucherRewardID=ID)
+ */
+export interface VoucherReward_Firestore {
+  id: VoucherRewardID
+  title: string
+  status: VoucherRewardStatus
+  url?: string
+  code?: string
+  type: VoucherRewardType
+  lootboxID: LootboxID
+  depositID: DepositID
+  redeemedBy?: UserID
+  redeemedDate?: number
+  depositedBy: UserID
+  depositedDate: number
+  tournamentID?: TournamentID
+  originVoucherRewardID?: VoucherRewardID
+  offerID?: OfferID
+  // offerMetadata?: {
+  //   offerID: OfferID
+  //   advertiserID: AdvertiserID
+  //   transferedToLootbox?: LootboxID // for when offer voucher transfers over to lootbox
+  //   transferedToVoucher?: VoucherRewardID // for when offer voucher transfers over to lootbox
+  //   transferedFromOffer?: OfferID // for when offer voucher transfers over to lootbox
+  // }
+}
+
+export enum VoucherRewardStatus {
+  Available = 'Available',
+  Redeemed = 'Redeemed',
+  Revoked = 'Revoked',
+  // OfferOnly = 'OfferOnly', // for when its part of an offer airdrop
+}
+
+export enum VoucherRewardType {
+  OneTime = 'OneTime',
+  ReusableSource = 'ReusableSource',
+  ReusableCloned = 'ReusableCloned',
 }
 
 // export interface Lootbox_Firestore {
@@ -154,9 +202,15 @@ export interface Deposit_Firestore {
   id: DepositID
   createdAt: number
   updatedAt: number
-  depositerAddress: Address
   depositerID: UserID
   lootboxID: LootboxID
+  maxTicketSnapshot: number
+  tournamentID?: TournamentID
+  blockchainMetadata?: DepositBlockchainMetadata
+  voucherMetadata?: DepositVoucherMetadata
+}
+
+export interface DepositBlockchainMetadata {
   lootboxAddress: Address
   erc20Amount: string
   nativeAmount: string
@@ -165,7 +219,13 @@ export interface Deposit_Firestore {
   chainIDHex: ChainIDHex
   depositID: DepositID_Web3
   erc20Address: Address
-  maxTicketSnapshot: number
+  depositerAddress: Address
+}
+
+export interface DepositVoucherMetadata {
+  hasReuseableVoucher: boolean
+  oneTimeVouchersCount: number
+  voucherTitle: string
 }
 
 export interface EnqueueLootboxOnMintCallableRequest {
