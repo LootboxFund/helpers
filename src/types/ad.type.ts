@@ -22,6 +22,7 @@ export interface AdEvent_Firestore {
   id: AdEventID
   timestamp: number
   adID?: AdID
+  userID?: UserID
   adSetID?: AdSetID
   sessionID?: SessionID
   campaignID?: CampaignID
@@ -102,6 +103,7 @@ export interface Activation_Firestore {
   count?: number
   order: number
   advertiserID: AdvertiserID
+  isDefault?: boolean
 }
 
 export enum AspectRatio {
