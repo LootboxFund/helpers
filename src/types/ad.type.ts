@@ -22,6 +22,7 @@ export interface AdEvent_Firestore {
   id: AdEventID
   timestamp: number
   adID?: AdID
+  userID?: UserID
   adSetID?: AdSetID
   sessionID?: SessionID
   campaignID?: CampaignID
