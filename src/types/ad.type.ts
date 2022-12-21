@@ -102,6 +102,7 @@ export interface Activation_Firestore {
   count?: number
   order: number
   advertiserID: AdvertiserID
+  isDefault?: boolean
 }
 
 export enum AspectRatio {

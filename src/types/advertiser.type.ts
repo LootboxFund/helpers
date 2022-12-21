@@ -48,8 +48,10 @@ export enum MeasurementPartnerType {
   Appsflyer = 'Appsflyer',
   GoogleTagManager = 'GoogleTagManager',
   ServerToServer = 'ServerToServer',
-  LootboxAppWebsiteVisit = 'LootboxAppWebsiteVisit',
   Manual = 'Manual',
+  LootboxAppAdView = 'LootboxAppAdView',
+  LootboxAppAnswerQuestions = 'LootboxAppAnswerQuestions',
+  LootboxAppWebsiteVisit = 'LootboxAppWebsiteVisit',
 }
 
 export const mmpTable = {
@@ -63,11 +65,6 @@ export const mmpTable = {
     description: 'Google Tag Manager',
     learnMore: 'https://tagmanager.google.com/',
   },
-  [MeasurementPartnerType.LootboxAppWebsiteVisit]: {
-    title: 'Lootbox App - Website Visit',
-    description: 'Lootbox App - Website Visit',
-    learnMore: 'https://lootbox.fund/',
-  },
   [MeasurementPartnerType.Manual]: {
     title: 'Manual',
     description: 'Manual',
@@ -76,6 +73,21 @@ export const mmpTable = {
   [MeasurementPartnerType.ServerToServer]: {
     title: 'ServerToServer',
     description: 'ServerToServer',
+    learnMore: 'https://lootbox.fund/',
+  },
+  [MeasurementPartnerType.LootboxAppAdView]: {
+    title: 'Lootbox App - Ad View',
+    description: 'Lootbox App - Ad View',
+    learnMore: 'https://lootbox.fund/',
+  },
+  [MeasurementPartnerType.LootboxAppAnswerQuestions]: {
+    title: 'Lootbox App - Answer Questions',
+    description: 'Lootbox App - Answer Questions',
+    learnMore: 'https://lootbox.fund/',
+  },
+  [MeasurementPartnerType.LootboxAppWebsiteVisit]: {
+    title: 'Lootbox App - Website Visit',
+    description: 'Lootbox App - Website Visit',
     learnMore: 'https://lootbox.fund/',
   },
 }
@@ -89,16 +101,24 @@ export const tableActivationIngestorRoutes = {
     path: '/appsflyer',
     method: 'GET',
   },
-  [MeasurementPartnerType.LootboxAppWebsiteVisit]: {
-    path: '/lootbox-app/website-visit',
-    method: 'POST',
-  },
   [MeasurementPartnerType.ServerToServer]: {
     path: '/server-to-server',
     method: 'POST',
   },
+  [MeasurementPartnerType.LootboxAppAdView]: {
+    path: '/lootbox-app',
+    method: 'POST',
+  },
+  [MeasurementPartnerType.LootboxAppAnswerQuestions]: {
+    path: '/lootbox-app',
+    method: 'POST',
+  },
+  [MeasurementPartnerType.LootboxAppWebsiteVisit]: {
+    path: '/lootbox-app',
+    method: 'POST',
+  },
 }
-export interface ActivationIngestorRoute_LootboxAppWebsiteVisit_Body {
+export interface ActivationIngestorRoute_LootboxAppActivation_Body {
   flightID: FlightID
   activationID: ActivationID
   mmpAlias: string
