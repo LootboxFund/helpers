@@ -196,4 +196,5 @@ export enum QuestionFieldType {
   SingleSelect = 'SingleSelect',
   MultiSelect = 'MultiSelect',
   Checkbox = 'Checkbox',
+  Consent = 'Consent',
 }
