@@ -1,4 +1,4 @@
-import { AirdropBase, MMPActivationAlias } from './ad.type'
+import { AirdropBase, MMPActivationAlias, Placement } from './ad.type'
 import { ActivationID, AffiliateBaseLink, MeasurementPartnerType, OfferStatus } from './advertiser.type'
 import {
   AdEventID,
@@ -195,7 +195,13 @@ export interface Offer_AfterTicketClaimMetadata {
 
 export enum OfferStrategy {
   Airdrop = 'Airdrop',
+  AfterTicketClaim = 'AfterTicketClaim',
   None = 'None',
+}
+
+export const OfferStrategyToAdPlacementConverter = {
+  [OfferStrategy.AfterTicketClaim]: Placement.AfterTicketClaim,
+  [OfferStrategy.Airdrop]: Placement.Airdrop,
 }
 
 export interface RateQuote_Firestore {
