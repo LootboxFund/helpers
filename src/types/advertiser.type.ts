@@ -49,6 +49,7 @@ export enum MeasurementPartnerType {
   GoogleTagManager = 'GoogleTagManager',
   ServerToServer = 'ServerToServer',
   Manual = 'Manual',
+  None = 'None',
   LootboxAppAdView = 'LootboxAppAdView',
   LootboxAppAnswerQuestions = 'LootboxAppAnswerQuestions',
   LootboxAppWebsiteVisit = 'LootboxAppWebsiteVisit',
