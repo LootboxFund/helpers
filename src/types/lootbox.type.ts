@@ -108,6 +108,7 @@ export interface VoucherReward_Firestore {
   type: VoucherRewardType
   lootboxID: LootboxID
   depositID: DepositID
+  ticketID?: LootboxTicketID
   redeemedBy?: UserID
   redeemedDate?: number
   depositedBy: UserID
