@@ -73,6 +73,7 @@ export interface AdFlight_Firestore {
   tournamentID?: TournamentID
   organizerID?: AffiliateID
   promoterID?: AffiliateID
+  referrerID?: UserID
   advertiserID: AdvertiserID
   timestamp: number
   pixelUrl: string
