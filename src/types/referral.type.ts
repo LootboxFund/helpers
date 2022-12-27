@@ -1,3 +1,4 @@
+import { TournamentPrivacyScope } from './affiliate.type'
 import { OfferID, QuestionAnswerID } from './base.type'
 import {
   Address,
@@ -112,6 +113,7 @@ export interface Claim_Firestore {
   timestamps: ClaimTimestamps_Firestore
 
   airdropMetadata?: ClaimAirdropMetadata
+  privacyScope?: TournamentPrivacyScope[]
 
   /** @deprecated use lootbox */
   originPartyBasketId?: PartyBasketID
