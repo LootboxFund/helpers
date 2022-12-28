@@ -18,17 +18,23 @@ import {
 export interface LootboxTicket_Firestore {
   id: LootboxTicketID
   lootboxID: LootboxID
-  lootboxAddress: Address
-  ticketID: LootboxTicketID_Web3
-  minterUserID: UserID
-  minterAddress: Address
-  mintWhitelistID: LootboxMintWhitelistID
   createdAt: number
-  stampImage: string
-  metadataURL: string
-  // claimID: ClaimID | null
-  digest: string
-  nonce: LootboxMintSignatureNonce
+  // TODO: Make this mandatory
+  ownerUserID?: UserID
+  updatedAt?: number
+
+  // ---- This stuff is from web3 data ----
+  mintWhitelistID?: LootboxMintWhitelistID
+  stampImage?: string
+  metadataURL?: string
+  minterUserID?: UserID
+  minterAddress?: Address
+  lootboxAddress?: Address
+  ticketID?: LootboxTicketID_Web3
+  digest?: string
+  nonce?: LootboxMintSignatureNonce
+  isMinted?: boolean
+  mintedAt?: number
 }
 
 export interface LootboxTicketCustomSchemaV2 {
