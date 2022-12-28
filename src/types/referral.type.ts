@@ -1,3 +1,4 @@
+import { TournamentPrivacyScope } from './affiliate.type'
 import { OfferID, QuestionAnswerID } from './base.type'
 import {
   Address,
@@ -112,6 +113,11 @@ export interface Claim_Firestore {
   timestamps: ClaimTimestamps_Firestore
 
   airdropMetadata?: ClaimAirdropMetadata
+  // This needs to be a record instead of string array for BigQuery considerations which handles arrays poorly
+  // privacyScope?: Record<TournamentPrivacyScope, boolean>
+  privacyScope?: {
+    [key in TournamentPrivacyScope]?: boolean
+  }
 
   /** @deprecated use lootbox */
   originPartyBasketId?: PartyBasketID
