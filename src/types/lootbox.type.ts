@@ -235,6 +235,7 @@ export interface EnqueueLootboxOnMintCallableRequest {
   nonce: LootboxMintSignatureNonce
   digest: LootboxTicketDigest
   chainIDHex: ChainIDHex
+  ticketID?: LootboxTicketID
 }
 
 export interface EnqueueLootboxOnDepositCallableRequest {
@@ -286,6 +287,7 @@ export type MintWhitelistSignature_Firestore = {
   createdAt: number
   updatedAt: number
   deletedAt: number | null
+  redeemedAt?: number | null
   nonce: LootboxMintSignatureNonce
   lootboxTicketID: LootboxTicketID | null
   lootboxID: LootboxID
