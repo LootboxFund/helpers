@@ -113,7 +113,8 @@ export interface Claim_Firestore {
   timestamps: ClaimTimestamps_Firestore
 
   airdropMetadata?: ClaimAirdropMetadata
-  privacyScope?: TournamentPrivacyScope[]
+  // This needs to be a record instead of string array for BigQuery considerations which handles arrays poorly
+  privacyScope?: Record<TournamentPrivacyScope, boolean>
 
   /** @deprecated use lootbox */
   originPartyBasketId?: PartyBasketID
