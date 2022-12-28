@@ -83,10 +83,6 @@ export enum ClaimType_Firestore {
   airdrop = 'airdrop',
 }
 
-export type ClaimPrivacyScope_Firestore = {
-  [key in TournamentPrivacyScope]?: boolean
-}
-
 export interface Claim_Firestore {
   id: ClaimID
   referrerId: UserID | null
@@ -119,7 +115,7 @@ export interface Claim_Firestore {
   airdropMetadata?: ClaimAirdropMetadata
   // This needs to be a record instead of string array for BigQuery considerations which handles arrays poorly
   // privacyScope?: Record<TournamentPrivacyScope, boolean>
-  privacyScope?: ClaimPrivacyScope_Firestore
+  privacyScope?: TournamentPrivacyScope[]
 
   /** @deprecated use lootbox */
   originPartyBasketId?: PartyBasketID
