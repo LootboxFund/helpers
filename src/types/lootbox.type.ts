@@ -45,6 +45,11 @@ export enum LootboxType {
   Airdrop = 'Airdrop',
 }
 
+export interface LootboxSafetyFeatures_Firestore {
+  maxTicketsPerUser: number
+  areReferralsDisabled: boolean
+}
+
 export interface Lootbox_Firestore {
   id: LootboxID
   logo: string
@@ -64,6 +69,7 @@ export interface Lootbox_Firestore {
   creatorID: UserID
   isContractDeployed?: boolean
   type?: LootboxType
+  safetyFeatures?: LootboxSafetyFeatures_Firestore
 
   // Web3 things
   address: Address | null

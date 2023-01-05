@@ -231,6 +231,13 @@ type TournamentTimestamps = {
   updatedAt: number
 }
 
+export interface TournamentSafetyFeatures_Firestore {
+  /** Max number of tickets that any one user can have for this tournament */
+  maxTicketsPerUser: number
+  /** This seeds lootboxes with the maximum number of tickets per user per lootbox */
+  seedMaxLootboxTicketsPerUser: number
+}
+
 export interface Tournament_Firestore {
   id: TournamentID
   title: string
@@ -263,6 +270,7 @@ export interface Tournament_Firestore {
       }
     }
   }
+  safetyFeatures?: TournamentSafetyFeatures_Firestore
 }
 
 export enum TournamentPrivacyScope {
