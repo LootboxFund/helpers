@@ -18,7 +18,7 @@ export interface User_Firestore {
   socials?: UserSocials_Firestore
   createdAt: number
   updatedAt: number
-  deletedAt?: number
+  deletedAt?: number | null
 }
 
 export type UserSocials_Firestore = {
