@@ -47,7 +47,8 @@ export enum LootboxType {
 
 export interface LootboxSafetyFeatures_Firestore {
   maxTicketsPerUser: number
-  areReferralsDisabled: boolean
+  /** If true, it does not show up in typical viral onboarding flows */
+  isExclusiveLootbox: boolean
 }
 
 export interface Lootbox_Firestore {
