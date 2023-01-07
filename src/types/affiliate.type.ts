@@ -160,6 +160,11 @@ export interface Memo_Firestore {
   timestamp: number
 }
 
+export enum OfferVisibility_Firestore {
+  Public = 'Public',
+  Private = 'Private',
+}
+
 export interface Offer_Firestore {
   id: OfferID
   title: string
@@ -174,6 +179,7 @@ export interface Offer_Firestore {
   endDate: number
   status: OfferStatus
   affiliateBaseLink: AffiliateBaseLink
+  visibility: OfferVisibility_Firestore
   mmp: MeasurementPartnerType
   // targetingTags: AdTargetTag[];
   adSets: AdSetID[]
@@ -238,6 +244,11 @@ export interface TournamentSafetyFeatures_Firestore {
   seedMaxLootboxTicketsPerUser: number
 }
 
+export enum TournamentVisibility_Firestore {
+  Public = 'Public',
+  Private = 'Private',
+}
+
 export interface Tournament_Firestore {
   id: TournamentID
   title: string
@@ -250,15 +261,15 @@ export interface Tournament_Firestore {
   prize?: string
   coverPhoto?: string
   communityURL?: string
-  streams?: Stream[]
   affiliateAdIds?: string[]
   organizer?: AffiliateID
   promoters?: AffiliateID[]
   advertisers?: AdvertiserID[]
-  isPostCosmic?: boolean // To be removed soon
-  runningCompletedClaims?: number
+  isPostCosmic: boolean // To be removed soon
+  runningCompletedClaims: number
   playbookUrl?: string
-  privacyScope?: TournamentPrivacyScope[]
+  privacyScope: TournamentPrivacyScope[]
+  visibility: TournamentVisibility_Firestore
   offers?: {
     [key: string]: {
       id: OfferID
@@ -271,6 +282,9 @@ export interface Tournament_Firestore {
     }
   }
   safetyFeatures?: TournamentSafetyFeatures_Firestore
+
+  /** @deprecated */
+  streams?: Stream[]
 }
 
 export enum TournamentPrivacyScope {
