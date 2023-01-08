@@ -9,16 +9,16 @@ export interface Wallet_Firestore {
 
 export interface User_Firestore {
   id: UserID
-  username?: string
-  avatar?: string
+  username: string
+  avatar: string
   email?: string
   phoneNumber?: string
   biography?: string
-  headshot?: string[]
+  headshot: string[]
   socials?: UserSocials_Firestore
   createdAt: number
   updatedAt: number
-  deletedAt?: number
+  deletedAt?: number | null
 }
 
 export type UserSocials_Firestore = {
