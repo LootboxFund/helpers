@@ -35,3 +35,61 @@ export interface StampNewLootboxResponse {
   message: string
   stamp: string
 }
+
+export interface StampSimpleTicketProps {
+  coverPhoto: string
+  sponsorLogos: string[]
+  teamName: string
+  playerHeadshot?: string
+  themeColor: string
+}
+
+export interface StampSimpleTicketResponse {
+  message: string
+  stamp: string
+}
+
+export interface StampInviteTicketProps {
+  coverPhoto: string
+  sponsorLogos: string[]
+  teamName: string
+  playerHeadshot?: string
+  themeColor: string
+  ticketValue: string
+  qrCodeLink: string
+}
+
+export interface StampInviteTicketResponse {
+  message: string
+  stamp: string
+}
+
+export interface StampVictoryTicketProps {
+  coverPhoto: string
+  sponsorLogos: string[]
+  teamName: string
+  playerHeadshot?: string
+  themeColor: string
+  ticketValue: string
+  qrCodeLink: string
+}
+
+export interface StampVictoryTicketResponse {
+  message: string
+  stamp: string
+}
+
+export interface StampLossTicketProps {
+  coverPhoto: string
+  sponsorLogos: string[]
+  teamName: string
+  playerHeadshot?: string
+  themeColor: string
+  ticketValue: string
+  qrCodeLink: string
+}
+
+export interface StampLossTicketResponse {
+  message: string
+  stamp: string
+}
