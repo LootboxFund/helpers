@@ -28,6 +28,7 @@ export interface Referral_Firestore {
   timestamps: ReferralTimestamps_Firestore
   type: ReferralType_Firestore
   seedLootboxID?: LootboxID
+  inviteGraphic?: string
   // TODO Remove after cosmic migration
   isPostCosmic?: boolean
 
