@@ -43,7 +43,7 @@ export interface StampSimpleTicketProps {
   eventName?: string
   hostName?: string
   coverPhoto: string
-  // sponsorLogos: string[]
+  sponsorLogos: string[]
   teamName: string
   playerHeadshot?: string
   themeColor: string
