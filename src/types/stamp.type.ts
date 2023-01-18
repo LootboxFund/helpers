@@ -1,6 +1,7 @@
 import { Address, ChainIDHex, LootboxID, Url } from './base.type'
 import { LootboxTicketMetadataV2_Firestore } from './tokens.type'
 
+/** @deprecated this is the old design */
 export interface StampNewTicketProps {
   backgroundImage: Url
   badgeImage?: Url
@@ -14,13 +15,14 @@ export interface StampNewTicketProps {
   metadata: LootboxTicketMetadataV2_Firestore
 }
 
+/** @deprecated this is the old design */
 export interface StampNewTicketResponse {
   stamp: string
   uri: string
   message: string
 }
 
-// stamp the lootbox
+/** @deprecated this is the old design */
 export interface StampNewLootboxProps {
   backgroundImage: string
   logoImage: string
@@ -31,14 +33,17 @@ export interface StampNewLootboxProps {
   chainIdHex?: ChainIDHex
 }
 
+/** @deprecated this is the old design */
 export interface StampNewLootboxResponse {
   message: string
   stamp: string
 }
 
 export interface StampSimpleTicketProps {
+  eventName?: string
+  hostName?: string
   coverPhoto: string
-  sponsorLogos: string[]
+  // sponsorLogos: string[]
   teamName: string
   playerHeadshot?: string
   themeColor: string
@@ -50,6 +55,8 @@ export interface StampSimpleTicketResponse {
 }
 
 export interface StampInviteTicketProps {
+  eventName?: string
+  hostName?: string
   coverPhoto: string
   sponsorLogos: string[]
   teamName: string
@@ -65,6 +72,8 @@ export interface StampInviteTicketResponse {
 }
 
 export interface StampVictoryTicketProps {
+  eventName?: string
+  hostName?: string
   coverPhoto: string
   sponsorLogos: string[]
   teamName: string
@@ -80,6 +89,8 @@ export interface StampVictoryTicketResponse {
 }
 
 export interface StampLossTicketProps {
+  eventName?: string
+  hostName?: string
   coverPhoto: string
   sponsorLogos: string[]
   teamName: string
