@@ -51,6 +51,11 @@ export interface LootboxSafetyFeatures_Firestore {
   isExclusiveLootbox: boolean
 }
 
+export interface StampMetadata_Firestore {
+  playerHeadshot: string | null
+  logoURLs: string[]
+}
+
 export interface Lootbox_Firestore {
   id: LootboxID
   logo: string
@@ -89,6 +94,7 @@ export interface Lootbox_Firestore {
   // metadata
   airdropMetadata?: LootboxAirdropMetadata
   voucherRewardsMetadata?: VoucherReward_Firestore[] // subcollection
+  stampMetadata?: StampMetadata_Firestore
 
   /** @deprecated */
   metadata?: LootboxMetadata_Firestore
