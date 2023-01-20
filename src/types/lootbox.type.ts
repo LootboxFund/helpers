@@ -290,6 +290,8 @@ export interface LootboxTournamentSnapshot_Firestore {
   description: string
   name: string
   stampImage: string
+  officialInviteStampImage?: string
+  officialInviteURL?: string
   type?: LootboxType
   timestamps: LootboxSnapshotTimestamps
   status: LootboxTournamentStatus_Firestore
