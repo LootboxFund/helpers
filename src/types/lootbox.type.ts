@@ -97,6 +97,10 @@ export interface Lootbox_Firestore {
   // metadata
   airdropMetadata?: LootboxAirdropMetadata
   voucherRewardsMetadata?: VoucherReward_Firestore[] // subcollection
+  /** Invite graphic created immediately after the lootbox is created */
+  officialInviteGraphic?: string
+  /** Invite URL */
+  officialInviteLink?: string
   stampMetadata?: StampMetadata_Firestore
 
   /** @deprecated */

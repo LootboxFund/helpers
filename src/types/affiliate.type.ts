@@ -14,6 +14,7 @@ import {
   StreamID,
   TournamentID,
   UserID,
+  UserIdpID,
 } from './base.type'
 
 /**
@@ -316,4 +317,23 @@ export interface Stream {
     updatedAt: number
     deletedAt?: number
   }
+}
+
+export enum AffiliateVisibility_Firestore {
+  Public = 'Public',
+  Private = 'Private',
+}
+
+export interface Affiliate_Firestore {
+  id: AffiliateID
+  userID: UserID
+  userIdpID: UserIdpID
+  name: string
+  description: string
+  publicContactEmail: string
+  organizerRank: OrganizerRank
+  avatar: string
+  website: string
+  audienceSize: number
+  visibility: AffiliateVisibility_Firestore
 }
