@@ -52,8 +52,11 @@ export interface LootboxSafetyFeatures_Firestore {
 }
 
 export interface StampMetadata_Firestore {
+  // themecolor & CoverImage are on the Lootbox_Firestore object itself
   playerHeadshot: string | null
   logoURLs: string[]
+  eventName: string | null
+  hostName: string | null
 }
 
 export interface Lootbox_Firestore {
