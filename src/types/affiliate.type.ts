@@ -250,6 +250,23 @@ export enum TournamentVisibility_Firestore {
   Private = 'Private',
 }
 
+export type EventPlayerInviteSlug = string
+export type EventPromoterInviteSlug = string
+
+export interface PlayerInviteMetadata {
+  slug: EventPlayerInviteSlug
+  destinationURL?: string
+}
+export interface PromoterInviteMetadata {
+  slug: EventPromoterInviteSlug
+  destinationURL?: string
+}
+
+export interface StampMetadata {
+  /** lootbox stamps will inherit these logoURLs */
+  logoURLs: string[]
+}
+
 export interface Tournament_Firestore {
   id: TournamentID
   title: string
@@ -283,6 +300,9 @@ export interface Tournament_Firestore {
     }
   }
   safetyFeatures?: TournamentSafetyFeatures_Firestore
+  playerInviteMetadata: PlayerInviteMetadata
+  promoterInviteMetadata: PromoterInviteMetadata
+  stampMetadata?: StampMetadata
 
   /** @deprecated */
   streams?: Stream[]

@@ -76,6 +76,8 @@ export interface Lootbox_Firestore {
   stampImage: string
   members?: LootboxMemberRep[]
   creatorID: UserID
+  /** used to allow tournament hosts to edit lootboxes made for their event by players */
+  createdOnBehalfOf?: UserID
   isContractDeployed?: boolean
   type?: LootboxType
   safetyFeatures?: LootboxSafetyFeatures_Firestore
