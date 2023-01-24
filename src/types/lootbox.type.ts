@@ -49,6 +49,11 @@ export interface LootboxSafetyFeatures_Firestore {
   maxTicketsPerUser: number
   /** If true, it does not show up in typical viral onboarding flows */
   isExclusiveLootbox: boolean
+  /**
+   * if true, tournament limits will not be considered when claiming this lootbox
+   * usecases: promoter lootboxes that are distinct from fan prize pool
+   */
+  excludeFromTournamentLimits?: boolean
 }
 
 export interface StampMetadata_Firestore {

@@ -250,16 +250,14 @@ export enum TournamentVisibility_Firestore {
   Private = 'Private',
 }
 
-export type EventPlayerInviteSlug = string
-export type EventPromoterInviteSlug = string
+export type EventInviteSlug = string
 
-export interface PlayerInviteMetadata {
-  slug: EventPlayerInviteSlug
-  destinationURL?: string
-}
-export interface PromoterInviteMetadata {
-  slug: EventPromoterInviteSlug
-  destinationURL?: string
+export interface EventInviteMetadata {
+  slug: EventInviteSlug
+  playerDestinationURL?: string
+  promoterDestinationURL?: string
+  maxPlayerLootbox: number
+  maxPromoterLootbox: number
 }
 
 export interface StampMetadata {
@@ -300,8 +298,7 @@ export interface Tournament_Firestore {
     }
   }
   safetyFeatures?: TournamentSafetyFeatures_Firestore
-  playerInviteMetadata: PlayerInviteMetadata
-  promoterInviteMetadata: PromoterInviteMetadata
+  inviteMetadata: EventInviteMetadata
   stampMetadata?: StampMetadata
 
   /** @deprecated */
