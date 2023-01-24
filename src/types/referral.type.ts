@@ -115,6 +115,10 @@ export interface Claim_Firestore {
 
   airdropMetadata?: ClaimAirdropMetadata
   privacyScope?: TournamentPrivacyScope[]
+  /* Only true when a given lootbox is claimed with
+   * lootbox.safetyFeatures.excludeFromEventLimits is true
+   */
+  exemptFromEventLimit: boolean | null
 
   /** @deprecated use lootbox */
   originPartyBasketId?: PartyBasketID

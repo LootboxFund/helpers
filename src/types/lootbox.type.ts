@@ -53,7 +53,7 @@ export interface LootboxSafetyFeatures_Firestore {
    * if true, tournament limits will not be considered when claiming this lootbox
    * usecases: promoter lootboxes that are distinct from fan prize pool
    */
-  excludeFromTournamentLimits?: boolean
+  excludeFromEventLimits?: boolean
 }
 
 export interface StampMetadata_Firestore {
