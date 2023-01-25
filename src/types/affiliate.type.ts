@@ -265,6 +265,11 @@ export interface StampMetadata {
   logoURLs: string[]
 }
 
+export enum EventInviteType {
+  PROMOTER = 'promoter',
+  PLAYER = 'player',
+}
+
 export interface Tournament_Firestore {
   id: TournamentID
   title: string
