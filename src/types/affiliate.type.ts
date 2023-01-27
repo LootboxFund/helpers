@@ -254,15 +254,16 @@ export type EventInviteSlug = string
 
 export interface EventInviteMetadata {
   slug: EventInviteSlug
-  playerDestinationURL?: string
-  promoterDestinationURL?: string
+  playerDestinationURL?: string | null
+  promoterDestinationURL?: string | null
   maxPlayerLootbox: number
   maxPromoterLootbox: number
 }
 
 export interface StampMetadata {
   /** lootbox stamps will inherit these logoURLs */
-  logoURLs: string[]
+  logoURLs?: string[]
+  seedLootboxFanTicketValue?: string
 }
 
 export enum EventInviteType {
