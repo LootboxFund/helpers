@@ -43,17 +43,15 @@ export type LootboxTimestamps = {
 export enum LootboxType {
   Compete = 'Compete',
   Airdrop = 'Airdrop',
+  /** Typical player lootboxes */
+  Player = 'Player',
+  Promoter = 'Promoter',
 }
 
 export interface LootboxSafetyFeatures_Firestore {
   maxTicketsPerUser: number
   /** If true, it does not show up in typical viral onboarding flows */
   isExclusiveLootbox: boolean
-  /**
-   * if true, tournament limits will not be considered when claiming this lootbox
-   * usecases: promoter lootboxes that are distinct from fan prize pool
-   */
-  excludeFromEventLimits?: boolean
 }
 
 export interface StampMetadata_Firestore {
@@ -164,43 +162,6 @@ export enum VoucherRewardType {
   ReusableSource = 'ReusableSource',
   ReusableCloned = 'ReusableCloned',
 }
-
-// export interface Lootbox_Firestore {
-//   // Immutable
-//   id: LootboxID
-//   address: Address
-//   factory: Address
-//   creatorID: UserID
-//   creatorAddress: Address
-//   chainIdHex: ChainIDHex
-//   variant: LootboxVariant_Firestore
-//   chainIdDecimal: ChainIDDecimal
-//   chainName: string
-//   symbol: string
-//   transactionHash: string
-//   blockNumber: string
-//   stampImage: string
-//   baseTokenURI: string
-
-//   // Mutable
-//   logo: string
-//   name: string
-//   description: string
-//   nftBountyValue?: string
-//   joinCommunityUrl?: string
-//   status?: LootboxStatus_Firestore
-//   maxTickets: number
-//   backgroundImage: string
-//   themeColor: string
-//   creationNonce: LootboxCreatedNonce | null
-//   timestamps: LootboxTimestamps
-//   runningCompletedClaims: number
-//   members?: LootboxMemberRep[]
-//   // metadataDownloadUrl: string;
-//   // metadataV2: LootboxMetadataV2_Firestore;
-//   /** @deprecated */
-//   metadata?: LootboxMetadata_Firestore
-// }
 
 export type LootboxMemberRep = {
   userID: UserID
