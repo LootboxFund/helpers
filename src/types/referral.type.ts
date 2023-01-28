@@ -15,6 +15,7 @@ import {
   UserID,
   WhitelistSignatureID,
 } from './base.type'
+import { LootboxType } from './lootbox.type'
 
 export interface Referral_Firestore {
   id: ReferralID
@@ -100,6 +101,7 @@ export interface Claim_Firestore {
   lootboxName?: string
   lootboxNFTBountyValue?: string
   lootboxMaxTickets?: number
+  lootboxType: LootboxType | null
   whitelistId: LootboxMintWhitelistID | null
   whitelistedAddress: Address | null
   ticketWeb3ID: LootboxTicketID_Web3 | null
@@ -115,10 +117,6 @@ export interface Claim_Firestore {
 
   airdropMetadata?: ClaimAirdropMetadata
   privacyScope?: TournamentPrivacyScope[]
-  /* Only true when a given lootbox is claimed with
-   * lootbox.safetyFeatures.excludeFromEventLimits is true
-   */
-  exemptFromEventLimit: boolean | null
 
   /** @deprecated use lootbox */
   originPartyBasketId?: PartyBasketID
