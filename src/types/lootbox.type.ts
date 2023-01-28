@@ -82,7 +82,7 @@ export interface Lootbox_Firestore {
   /** used to allow tournament hosts to edit lootboxes made for their event by players */
   createdOnBehalfOf?: UserID
   isContractDeployed?: boolean
-  type?: LootboxType
+  type: LootboxType
   safetyFeatures?: LootboxSafetyFeatures_Firestore
 
   // Web3 things
