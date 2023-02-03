@@ -33,9 +33,12 @@ export const convertFilenameToThumbnail = (file: string, size: keyof SizeMapping
   const decodedFile = decodeURIComponent(file)
   const fileparts = decodedFile.split('/')
   const filename = fileparts.pop()
-  const filenameParts = filename?.split('.')
-  const extension = filenameParts?.pop()
-  const originalFilenameWithoutExtension = filenameParts?.join('.')
+  if (!filename) {
+    return decodedFile
+  }
+  const filenameParts = filename.split('.')
+  const extension = filenameParts.pop()
+  const originalFilenameWithoutExtension = filenameParts.join('.')
   if (!filename || !extension || !originalFilenameWithoutExtension) {
     console.log('invalid filename', decodedFile)
     return decodedFile
