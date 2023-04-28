@@ -2,6 +2,11 @@
 
 [Overview Video](https://drive.google.com/file/d/1kM8IeodBU4TMKoZrt4kHuFSqAzBcJmFO/view?usp=sharing)
 
+
+```
+The MIT License (MIT) is a permissive open source software license that enables free use, modification, and distribution of the licensed software, including for commercial purposes. It grants users a high level of flexibility, promoting innovation and collaboration. By using the software under the MIT License, the licensee agrees to attribute the original developers in any derivative works, ensuring their contribution is acknowledged. However, the license explicitly disclaims any warranty or liability for the software, protecting the original developers from legal responsibility for any potential damages or losses resulting from its use.
+```
+
 <img width="1093" alt="image" src="https://user-images.githubusercontent.com/96885027/235134595-322d2064-0d0b-44e1-88db-e594dd338ed6.png">
 
 <img width="1089" alt="image" src="https://user-images.githubusercontent.com/96885027/235134798-6da84353-24d9-43bb-83cf-345a50ebe45c.png">
