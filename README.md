@@ -1,6 +1,6 @@
 # Lootbox Helpers
 
-A template for building shareable libraries that can be used both NodeJS `import` or Browser `<script>` tags.
+[Overview Video](https://drive.google.com/file/d/1kM8IeodBU4TMKoZrt4kHuFSqAzBcJmFO/view?usp=sharing)
 
 ## Storybook
 
